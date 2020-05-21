@@ -1,0 +1,28 @@
+
+
+
+/*----------------------CONTENIDO PRINCIPAL----------------*/
+.main{
+    grid-area: contenido;
+    background: #f9f9f9;
+    padding: 40px;
+}
+
+.main-titulo{
+    margin-bottom: 20px;
+}
+
+.main .grid-ofertas{
+    display: grid;
+    grid-gap: 40px 20px;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.main .grid-ofertas .oferta{
+    width: 100%;
+    display: block;
+}
+
+.main .grid-ofertas .oferta img{
+    width: 100%;
+}

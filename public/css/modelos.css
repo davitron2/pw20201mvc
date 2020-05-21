@@ -1,0 +1,64 @@
+/*PRIMER EJEMPLO de css*/
+/*para incrustar un css dentro de otro*/
+/*@import url();*/
+
+body{background: #d27ee2 url('../img/autor.jpeg') ;
+       }
+
+div.wrap, #body {width:95%;
+        height: auto;
+        background: #76a5b8;
+        margin: 0 auto;
+       padding: 15px;}
+
+ /*.wrap*/       
+
+ #header {width:95%;
+        height: 100px;
+        background: #dce1e4;
+        margin: 20px auto;
+        padding-left: 20px;}      
+        
+ /*#body{width:95%;
+       height: auto;
+       background: #76a5b8;
+       margin: 0 auto;
+      padding: 15px;}    */   
+
+
+.menu {width:95%;
+       height: 50px;
+       background: #cab9d6;
+       margin: 2px auto;
+       padding: 5px;}
+
+       /*MENU*/
+/*Sin viñetas en la lista*/
+#menu {padding: 0;
+       }
+
+/*Lista en linea horizontal*/
+#menu li{display: inline;
+       }
+/*Quitar lo subrayado*/
+#menu li a{text-decoration: none !important;
+           font-family: Arial;
+           font-size: 1em;
+           float: left;
+           padding: 10px;
+           background-color: #c665ec;
+           color: #ffffff
+       }
+/*Uso de una pseudoclase= hover es sobre el objeto*/
+#menu li a:hover{background-color: #690469
+}
+
+/*TABLAS*/
+table, th, td{border: solid 1px #000;
+              border-collapse: collapse }
+
+table#usuarios tr.impar{background: #dce1e4;}              
+
+table#usuarios tr.par{background: #aeb2b4;}   
+
+table#usuarios tr:hover{font-size: 1.1em;}

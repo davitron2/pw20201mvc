@@ -1,0 +1,24 @@
+
+		#calendario {
+			font-family:Arial;
+			font-size:20px;
+		}
+		
+		#calendario th {
+			background-color:#870099;
+			color:#fff;
+			width:40px;
+		}
+		#calendariio td {
+			text-align:right;
+			padding:2px 5px;
+			background-color:#c0c0c0;
+        }
+        
+		#calendario .hoy {
+            background-color:#ff00bf;
+            color: #fff;
+        }
+        
+    
+    
