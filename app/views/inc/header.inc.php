@@ -55,13 +55,7 @@
       <ul class="navbar-nav ml-auto">
 
 
-      <?php if(!isset($_SESSION['usuario'])){ ?>
-                  
-                  <?php }else{?>
-                  <div> 
-                  <img src="data:image/png;base64, <?php echo $_SESSION['foto'] ; ?>" width="50">
-                  </div>
-                  <?php } ?>
+     
 
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"  href="#" aria-haspopup="true" aria-expanded="false">Acceso</a>
