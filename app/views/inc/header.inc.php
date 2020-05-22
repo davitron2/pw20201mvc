@@ -37,14 +37,14 @@
       <ul class="navbar-nav mr-auto">
         
         <li class="nav-item">
-          <a class="nav-link" href="<?php echo RUTA_URL;?>/usuarios">Usuarios</a>
+          <a class="nav-link" href="<?php echo RUTA_URL;?>/alumnos">Alumnos</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Reportes
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="<?php echo RUTA_URL;?>/productos">Ventas</a>
+            <a class="dropdown-item" href="#">Ventas</a>
             <a class="dropdown-item" href="#">Empleados</a>
             <div class="dropdown-divider"></div> <!--LINEA DIVISORA como el hr-->
             <a class="dropdown-item" href="#">Otros</a>
