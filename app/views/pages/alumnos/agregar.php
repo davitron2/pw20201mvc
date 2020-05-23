@@ -20,7 +20,7 @@ include RUTA_APP . '/views/inc/header.inc.php'; ?>
                                 <div class="col-sm-4">
                                     <div class="form-group">
                                         <label for="nombres">Nombres</label>
-                                        <input type="text" class="form-control" id="nombres" name="nombres" aria-describedby="claveAyuda" required>
+                                        <input type="text"   pattern="^([A-Z]{1}[a-zñáéíóú]+[\s]*)+$"   title="Ejemplo: david ruiz"  class="form-control" id="nombres" name="nombres" aria-describedby="claveAyuda" required>
                                     </div>
                                 </div>
                                 <div class="col-sm-8">
@@ -40,7 +40,7 @@ include RUTA_APP . '/views/inc/header.inc.php'; ?>
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label for="NIP">NIP</label>
-                                        <input type="text" class="form-control" id="NIP" name="NIP"  required>
+                                        <input type="password" class="form-control" id="NIP" name="NIP"  required>
                                     </div>
                                 </div>
                             </div>
@@ -53,7 +53,7 @@ include RUTA_APP . '/views/inc/header.inc.php'; ?>
                                     <button type="reset" class="btn btn-warning btn-block">Limpiar <i class="fa fa-broom text-primary"></i></button>
                                 </div>
                                 <div class="col-sm-4">
-                                    <button type="submit" class="btn btn-success btn-block" >Guardar <i class="fa fa-save"></i></button>
+                                    <button  id="xml" type="submit" class="btn btn-success btn-block" >Guardar <i class="fa fa-save"></i></button>
                                 </div>
                                 <div class="col-sm-2"></div>
                             </div>
@@ -66,5 +66,4 @@ include RUTA_APP . '/views/inc/header.inc.php'; ?>
         </div>
 </div>
 <?php include RUTA_APP . '/views/inc/footer.inc.php'; ?>
-
 

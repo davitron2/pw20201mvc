@@ -52,7 +52,7 @@
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label for="NIP">NIP</label>
-                                        <input type="text" class="form-control" id="NIP" name="NIP" aria-describedby="cantidadAyuda" value="" required>
+                                        <input type="password" class="form-control" id="NIP" name="NIP" aria-describedby="cantidadAyuda" value="" required>
                                     </div>
                                 </div>
                                 

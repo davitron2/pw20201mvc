@@ -21,7 +21,7 @@
                             </div>
                             <div class="form-group">
                             <label for="password">contraseña</label>
-                            <input type="contraseña" class="form-control" id="contraseña" name="contraseña" require placeholder="contraseña">
+                            <input type="password" class="form-control" id="contraseña" name="contraseña" require placeholder="contraseña">
                             </div>
                             <button type="submit" class="btn btn-primary btn-block">Ingresar</button>
                         </form>

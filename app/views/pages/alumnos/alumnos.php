@@ -17,6 +17,7 @@ include RUTA_APP . '/views/inc/header.inc.php';
     <?php } else { ?>
 
     <div class="controllers">
+   
         <a href="<?php echo RUTA_URL; ?>/alumnos/agregar" id="agregar" class="btn btn-info btn-sm float-right"> <i class="fa fa-plus"></i> </a>
     </div>
 
