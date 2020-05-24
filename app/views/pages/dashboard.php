@@ -22,7 +22,7 @@ include RUTA_APP . '/views/inc/header.inc.php';
                     } else {
                 ?>
 
-<h3><?php echo $datos['titulo'] . $_SESSION['usuario']['nombre_usuario'] ?></h3>
+<h3><?php echo "bienvenido: " . $_SESSION['usuario']['usuario'] ?></h3>
     
     <p>Programación Web</p>
 
