@@ -17,7 +17,7 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 -- Schema pw2020
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `pw2020` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci ;
+CREATE SCHEMA IF NOT EXISTS `pw2020` DEFAULT CHARACTER SET latin2 COLLATE latin2_general_ci;
 USE `pw2020` ;
 
 -- -----------------------------------------------------
@@ -31,8 +31,8 @@ CREATE TABLE IF NOT EXISTS `pw2020`.`alumno` (
   `NIP` VARCHAR(100) NOT NULL,
   PRIMARY KEY (`noControl`))
 ENGINE = MyISAM
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+DEFAULT CHARACTER SET = latin2
+COLLATE = latin2_general_ci;
 
 
 -- -----------------------------------------------------
@@ -43,8 +43,8 @@ CREATE TABLE IF NOT EXISTS `pw2020`.`aula` (
   `nombre` VARCHAR(59) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = MyISAM
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+DEFAULT CHARACTER SET = latin2
+COLLATE = latin2_general_ci;
 
 
 -- -----------------------------------------------------
@@ -57,8 +57,8 @@ CREATE TABLE IF NOT EXISTS `pw2020`.`materia` (
   `unidades` INT(11) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = MyISAM
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+DEFAULT CHARACTER SET = latin2
+COLLATE = latin2_general_ci;
 
 
 -- -----------------------------------------------------
@@ -72,8 +72,8 @@ CREATE TABLE IF NOT EXISTS `pw2020`.`personal` (
   PRIMARY KEY (`id`))
 ENGINE = MyISAM
 AUTO_INCREMENT = 2
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+DEFAULT CHARACTER SET = latin2
+COLLATE = latin2_general_ci;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
