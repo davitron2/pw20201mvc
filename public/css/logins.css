@@ -1,0 +1,69 @@
+.container-main-header {
+    background-color: #000080;
+    width: 100vw;
+    height: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    color: white;
+}
+
+.container-main-cards-login {
+    height: calc(100vh - 5rem);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container-cards-login {
+    display: flex;
+    justify-content: center;
+}
+
+.card-wrapper {
+    width: 15rem;
+}
+
+.card-footer {
+    padding: 0 !important;
+}
+
+.btn-login {
+    border-style: none;
+    width: 100%;
+    border-radius: 0 0 calc(.25rem - 1px) calc(.25rem - 1px);
+    padding: .75rem 1.25rem;
+    outline: none;
+    -moz-outline: none;
+}
+
+.btn-login:hover {
+    background-color: rgba(0, 0, 0, .10);
+}
+
+@media (max-width: 991px) {
+    .container-main-header {
+        font-size: 1.2rem;
+    }
+
+    .container-cards-login {
+        flex-direction: column;
+        overflow: hidden;
+        scroll-behavior: auto;
+    }
+
+    .img-login {
+        display: none;
+    }
+
+    .card-wrapper {
+        width: 18rem;
+    }
+
+    .btn-login {
+        background-color: #000080;
+        color: white;
+    }
+}

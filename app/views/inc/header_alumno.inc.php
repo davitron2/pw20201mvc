@@ -12,7 +12,7 @@
                     <a class="nav-link" href="#">Horario</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Calificaciones Parciales</a>
+                    <a class="nav-link" href="#">Calificaciones parciales</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Boleta</a>
