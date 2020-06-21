@@ -14,8 +14,8 @@ class Reticula{
 
     public function agregarReticula($datos){
         $bind=array( 
-                    $datos['carrera'],  
-                    datos['año'], 
+                    $datos['idCarrera'],  
+                    $datos['año'], 
                    
         );
     $sql="INSERT INTO reticula SELECT (carrera,año) values (?,?)";
