@@ -1,0 +1,29 @@
+.container-main-navbar {
+    padding: 0;
+    margin: 0;
+}
+
+.container-main-navbar-info {
+    background-color: #000080;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5rem;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.container-main-navbar-nav {
+    display: flex;
+    justify-content: center;
+}
+
+@media (max-width: 991px) {
+    .container-main-navbar-info {
+        font-size: 1.2rem;
+    }
+
+    .container-main-navbar-nav {
+        justify-content: start;
+    }
+}
