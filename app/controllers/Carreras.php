@@ -6,7 +6,7 @@ class Carreras extends Controller{
       
     }
     public function index(){
-        $Carrera=$this->carreraModel->obtenerCarreras();
+        $Carreras=$this->carreraModel->obtenerCarreras();
 
 
         $datos = [
@@ -18,22 +18,20 @@ class Carreras extends Controller{
     public function agregar(){
         if($_SERVER['REQUEST_METHOD']=='POST'){
             $datos = [
-                'nombre' => trim($_POST['nombre']),
-           
-                
+                'nombre' => trim($_POST['inputNombre']),
+             
+            
             ];
             if($this->carreraModel->agregarCarrera($datos)){
                 redireccionar('/carreras');
             } else {
-             
+                //TODO tratar errores
             }
 
         } else {
             $datos = [
                 'nombre' => '',
               
-                
-                
             ];
             $this->view('pages/carreras/agregar',$datos);
         }
@@ -43,7 +41,7 @@ class Carreras extends Controller{
         if($_SERVER['REQUEST_METHOD']=='POST'){
             $datos = [
                 'id' => $id,
-                'nombre' => trim($_POST['nombre']),
+                'nombre' => trim($_POST['inputNombre']),
              
               
                               
@@ -73,13 +71,13 @@ class Carreras extends Controller{
     }
 
     public function borrar($id){
-        $carrera=$this->carrera->obtenerCarreraId($id);
+        $carrera=$this->carreraModel->obtenerCarreraId($id);
 
         $datos = [
             'id' => $carrera['id'],
+           
             'nombre' => $carrera['nombre'],
-           
-           
+    
          
             
             
@@ -94,7 +92,6 @@ class Carreras extends Controller{
             }
             $this->view('pages/carreras/borrar',$datos);
     }
-
 
 
 

@@ -14,11 +14,15 @@ class Carrera{
 
     public function agregarCarrera($datos){
         $bind=array( 
-                    $datos['nombre'],  
-                   
+        
+            $datos['nombre'],  
+         
+                 
+             
+                    
                    
         );
-    $sql="INSERT INTO carrera SELECT (nombre) values (?)";
+    $sql="INSERT INTO carrera   (nombre) VALUES (?)    ";
     $resultado=$this->db->query($sql,$bind);
     return(is_array($resultado))?true:false;
     }

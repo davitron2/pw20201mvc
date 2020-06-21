@@ -18,6 +18,9 @@
                     <a class="nav-link" href="#">Aulas</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="<?php echo RUTA_URL ?>/carreras">Carreras</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="#">Materias</a>
                 </li>
                 <li class="nav-item">
