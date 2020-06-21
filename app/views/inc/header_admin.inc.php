@@ -12,7 +12,7 @@
                     <a class="nav-link" href="#">Alumnos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Personal</a>
+                    <a class="nav-link" href="<?php echo RUTA_URL ?>/personales">Personal</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Aulas</a>
