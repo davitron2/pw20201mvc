@@ -1,6 +1,23 @@
-/*body {background-color: #D684C0;}*/
+.text-bold{
+    font-weight: bold;
+}
+fieldset.form-group {
+    position: relative;
+}
 
-table, th, td {border: solid 1px #000;
-                border-collapse:collapse;}    /* ESTO*/
-                
-                
+.floating-label {
+    position: absolute;
+    top: 0;
+    padding: 7px 0 0 13px;
+    transition: all 200ms;
+    opacity: 0.8;
+    color: #808080;
+}
+
+.form-control:focus + .floating-label,
+.form-control:valid + .floating-label {
+    font-size: 92%;
+    transform: translate3d(0, -100%, 0);
+    opacity: 1;
+    color: #3c3c3c;
+}
