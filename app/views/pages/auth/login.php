@@ -17,11 +17,11 @@
                             <div class="form-group">
                                 <label for="correo">usuario</label>
                                 <input type="text" class="form-control" id="usuario" name="usuario" aria-describedby="emailHelp" require placeholder="usuario">
-                                <small id="emailHelp" class="form-text text-muted">Nunca comparta su contraseña con nadie.</small>
+                                <small id="emailHelp" class="form-text text-muted">Nunca comparta su contrasena con nadie.</small>
                             </div>
                             <div class="form-group">
-                            <label for="password">contraseña</label>
-                            <input type="password" class="form-control" id="contraseña" name="contraseña" require placeholder="contraseña">
+                            <label for="password">contrasena</label>
+                            <input type="password" class="form-control" id="contrasena" name="contrasena" require placeholder="contrasena">
                             </div>
                             <button type="submit" class="btn btn-primary btn-block">Ingresar</button>
                         </form>

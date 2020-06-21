@@ -9,8 +9,8 @@
         public function buscarUsuario($datos){
             //print_r($datos);
             if(!$this->verificar($datos)){
-                $bind=array($datos['usuario'], $datos['contraseña']);
-                $sql=" SELECT * FROM personal WHERE usuario=? and contraseña=?";
+                $bind=array($datos['usuario'], $datos['contrasena']);
+                $sql=" SELECT * FROM personal WHERE usuario=? and contrasena=?";
                 $renglon=$this->db->queryRenglon($sql,$bind);
                 return $renglon;
             } else {
@@ -19,7 +19,7 @@
         }
 
         public function verificar($datos){
-            return empty($datos['usuario']) || empty($datos['contraseña']);
+            return empty($datos['usuario']) || empty($datos['contrasena']);
 
         }
     }

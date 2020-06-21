@@ -15,7 +15,7 @@ class Auths extends Controller{
         if($_SERVER['REQUEST_METHOD']=='POST'){
             $datos=[
                 'usuario' => trim($_POST['usuario']),
-                'contraseña' => trim($_POST['contraseña'])
+                'contrasena' => trim($_POST['contrasena'])
             ];
             $usuario=$this->authModel->buscarUsuario($datos);
 
