@@ -8,7 +8,7 @@ include RUTA_APP . '/views/inc/header.inc.php'; ?>
     </div>
     <div class="row mt-1 justify-content-center">
         <div class="col-md-8">
-            <h4>Agregar personal</h4>
+            <h4>Borrar personal</h4>
             <form  action="<?php echo RUTA_URL;?>/personales/borrar/<?php echo $datos['id']; ?>" method="post" enctype="multipart/form-data">
                 <div class="row form-group">
                     <div class="col-6 col-lg-3  mt-3 mb-2">
