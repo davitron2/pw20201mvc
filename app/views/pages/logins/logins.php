@@ -1,23 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<?php
+//ini_set('error_reporting',0);
+ini_set('display_errors',0);
+session_start();
+include RUTA_APP . '/views/inc/header.inc.php';
+?>
+<br>
+    <div class="container">
+        <?php if(isset($_SESSION['usuario'])   ) { ?>
+         
 
-<!--ZONA FA-->
-    <link rel="stylesheet" href="<?php echo RUTA_URL ?>/css/solid.css">
-    <link rel="stylesheet" href="<?php echo RUTA_URL ?>/css/fontawesome.css">
-<!--ZONA BS-->
-<link rel="stylesheet" href="<?php echo RUTA_URL ?>/css/logins.css">
-    <link rel="stylesheet" href="<?php echo RUTA_URL ?>/css/bootstrap.min.css">
-    <link rel="stylesheet" href="<?php echo RUTA_URL ?>/css/estilos.css">
-    <link rel="stylesheet" href="<?php echo RUTA_URL ?>/css/custom.css">
-    <link rel="stylesheet" href="<?php echo RUTA_URL ?>/css/navbars.css">
-<!--**************************************************************-->
-    <title><?php echo NOMBRE_SITIO;?></title>
-</head>
-<body>
-    <div class="container-main-header">Instituto Tecnol&oacute;gico de Delicias</div>
+
+            <h3><?php echo "bienvenido: " . $_SESSION['usuario']['usuario'] ?></h3>
+    
+    <p>Programación Web</p>
+
+
+
+
+
+
+
+
+                <?php
+                    } else {
+                ?>
+
+
+
+
+<?php if(isset($_SESSION['alumno'])   ) { ?>
+
+
+
+    <h3><?php echo "bienvenido: " . $_SESSION['alumno']['noControl'] ?></h3>
+    
+    <p>Programación Web</p>
+
+
+
+
+    <?php
+                    } else {
+                ?>
+
+
     <div class="container container-main-cards-login">    
         <div class="card-deck container-cards-login ">
             <div class="card card-wrapper">
@@ -26,7 +52,13 @@
                     <h5 class="card-title">Personal del Instituto</h5>
                 </div>
                 <div class="card-footer">
-                    <button class="btn-login">Iniciar sesi&oacute;n</button>
+
+
+
+                <form action="<?php echo RUTA_URL;?>/auths/1">
+                    <button  type="submit"   class="btn-login">Iniciar sesi&oacute;n</button>
+                                </form>
+               
                 </div>
             </div>
             <div class="card card-wrapper">
@@ -35,10 +67,40 @@
                     <h5 class="card-title">Alumnos</h5>
                 </div>
                 <div class="card-footer">
-                    <button class="btn-login">Iniciar sesi&oacute;n</button>
+
+
+
+                <form action="<?php echo RUTA_URL;?>/auths/2">
+                    <button  type="submit"   class="btn-login">Iniciar sesi&oacute;n</button>
+                                </form>
+
+
+
+
+
                 </div>
             </div>
         </div>
     </div>
-</body>
-</html>
+
+
+
+
+
+
+
+
+
+
+                    <?php } ?>
+
+                    <?php } ?>
+
+
+                    
+    
+
+    </div>
+<?php
+include RUTA_APP . '/views/inc/footer.inc.php'
+?>

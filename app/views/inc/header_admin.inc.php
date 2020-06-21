@@ -6,7 +6,7 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link" href="/">Inicio</a>
+                    <a class="nav-link" href="<?php echo RUTA_URL ?>/logins/logins">Inicio</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Alumnos</a>
@@ -27,7 +27,7 @@
                     <a class="nav-link" href="#">Cambio de NIP</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Cerrar sesi&oacute;n</a>
+                    <a class="nav-link" href="<?php echo RUTA_URL ?>/auths/logout">Cerrar sesi&oacute;n</a>
                 </li>
             </ul>
         </div>

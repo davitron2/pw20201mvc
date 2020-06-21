@@ -6,27 +6,99 @@ include RUTA_APP . '/views/inc/header.inc.php';
 ?>
 <br>
     <div class="container">
-        <?php if(!isset($_SESSION['usuario'])) { ?>
-            <div class="row">
-                <div class="col-sm-4"></div>
-                <div class="col-sm-4">
-                    <div class="card bg-warning">
-                        <div class="card-header"> Avisos </div>
-                        <div class="card-body"> No tiene permisos...vaya a login</div>
-                    </div>
-                </div>
-                <div class="col-sm-4"></div>
-            
-            </div>
+        <?php if(isset($_SESSION['usuario'])   ) { ?>
+         
+
+
+            <h3><?php echo "bienvenido: " . $_SESSION['usuario']['usuario'] ?></h3>
+    
+    <p>Programación Web</p>
+
+
+
+
+
+
+
+
                 <?php
                     } else {
                 ?>
 
-<h3><?php echo "bienvenido: " . $_SESSION['usuario']['usuario'] ?></h3>
+
+
+
+<?php if(isset($_SESSION['alumno'])   ) { ?>
+
+
+
+    <h3><?php echo "bienvenido: " . $_SESSION['alumno']['noControl'] ?></h3>
     
     <p>Programación Web</p>
 
+
+
+
+    <?php
+                    } else {
+                ?>
+
+
+    <div class="container container-main-cards-login">    
+        <div class="card-deck container-cards-login ">
+            <div class="card card-wrapper">
+                <img src="<?php echo RUTA_URL ?>/img/maestro.png" class="card-img-top img-login">
+                <div class="card-body">
+                    <h5 class="card-title">Personal del Instituto</h5>
+                </div>
+                <div class="card-footer">
+
+
+
+                <form action="<?php echo RUTA_URL;?>/auths/1">
+                    <button  type="submit"   class="btn-login">Iniciar sesi&oacute;n</button>
+                                </form>
+               
+                </div>
+            </div>
+            <div class="card card-wrapper">
+                <img src="<?php echo RUTA_URL ?>/img/alumno.png" class="card-img-top img-login" alt="">
+                <div class="card-body">
+                    <h5 class="card-title">Alumnos</h5>
+                </div>
+                <div class="card-footer">
+
+
+
+                <form action="<?php echo RUTA_URL;?>/auths/2">
+                    <button  type="submit"   class="btn-login">Iniciar sesi&oacute;n</button>
+                                </form>
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
                     <?php } ?>
+
+                    <?php } ?>
+
+
+                    
+    
 
     </div>
 <?php

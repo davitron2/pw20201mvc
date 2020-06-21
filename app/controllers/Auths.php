@@ -5,14 +5,32 @@ class Auths extends Controller{
         #cargamos el modelo
         $this->authModel=$this->model('Auth');
     }
-    public function index(){
+    public function index($option){
+
+
+
         $datos = [
             'titulo'=>'',
         ];
+
+        if($option==1){
+
+
         $this->view('pages/auth/login',$datos);
+    }else {
+        $this->view('pages/auth/loginA',$datos);
     }
+    }
+
+
+
+
     public function login(){
         if($_SERVER['REQUEST_METHOD']=='POST'){
+
+          
+
+
             $datos=[
                 'usuario' => trim($_POST['usuario']),
                 'contrasena' => trim($_POST['contrasena'])
@@ -34,8 +52,53 @@ class Auths extends Controller{
                 ];
                 $this->view('pages/auth/login',$datos);
             }
+                
+
+
+
+
         }
     }
+
+    public function loginA(){
+        if($_SERVER['REQUEST_METHOD']=='POST'){
+
+          
+
+
+            $datos=[
+                'noControl' => trim($_POST['noControl']),
+                'NIP' => trim($_POST['NIP'])
+            ];
+            $alumno=$this->authModel->buscarAlumno($datos);
+
+            if($alumno){
+                session_start();
+                $_SESSION['alumno']= $alumno;
+               
+                $datos=[
+                    'titulo' => 'Bienvenido: ',
+                    'usuario' => $alumno['noControl']
+                ];
+                $this->view('pages/dashboard',$datos);
+            } else {
+                $datos=[
+                    'titulo' => 'Usuario no existe',
+                ];
+                $this->view('pages/auth/loginA',$datos);
+            }
+                
+
+
+
+
+        }
+    }
+
+
+
+
+
 
     public function logout(){
         session_start();
@@ -44,7 +107,7 @@ class Auths extends Controller{
         $datos=[
             'titulo' => 'Ha salido del sistema. ',
         ];
-        $this->view('pages/auth/login',$datos);
+        $this->view('pages/logins/logins',$datos);
     }
 }
 ?>

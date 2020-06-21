@@ -22,5 +22,30 @@
             return empty($datos['usuario']) || empty($datos['contrasena']);
 
         }
+
+
+
+
+        public function buscarAlumno($datos){
+            //print_r($datos);
+            if(!$this->verificarAlumno($datos)){
+                $bind=array($datos['noControl'], $datos['NIP']);
+                $sql=" SELECT * FROM alumno WHERE noControl=? and NIP=?";
+                $renglon=$this->db->queryRenglon($sql,$bind);
+                return $renglon;
+            } else {
+              //TODO para el manejo de errores
+            }
+        }
+
+        public function verificarAlumno($datos){
+            return empty($datos['noControl']) || empty($datos['NIP']);
+
+        }
+
+
+
+
+
     }
 ?>
