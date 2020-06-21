@@ -1,9 +1,9 @@
 <?php session_start();
 include RUTA_APP . '/views/inc/header.inc.php'; ?>
 <div class="container-fluid">
-    <div class="row bg-dark py-2 px-4">
+    <div class="row py-2 px-4">
         <div class="col">
-            <a href="<?php echo RUTA_URL; ?>/personales" class="text-white text-bold"><i class="fas fa-arrow-left"></i></i>   Regresar</a>
+            <a href="<?php echo RUTA_URL; ?>/personales" class="text-secondary"><i class="fas fa-arrow-left"></i></i>   Regresar</a>
         </div>
     </div>
     <div class="row mt-1 justify-content-center">
