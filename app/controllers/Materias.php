@@ -8,9 +8,7 @@ class Materias extends Controller{
     public function index(){
         $Materias=$this->materiaModel->obtenerMaterias();
 
-
         $datos = [
-            
             'Materias'=>$Materias
         ];
         $this->view('pages/materias/materias',$datos);
@@ -18,26 +16,20 @@ class Materias extends Controller{
     public function agregar(){
         if($_SERVER['REQUEST_METHOD']=='POST'){
             $datos = [
-                'nombre' => trim($_POST['nombre']),
-                'creditos' => trim($_POST['creditos']),
-                'unidades' => trim($_POST['unidades']),
-                
-                
+                'nombre' => trim($_POST['inputNombre']),
+                'creditos' => trim($_POST['inputCreditos']),
+                'unidades' => trim($_POST['inputUnidades'])
             ];
             if($this->materiaModel->agregarMateria($datos)){
                 redireccionar('/materias');
             } else {
              
             }
-
         } else {
             $datos = [
                 'nombre' => '',
                 'creditos' => '',
                 'unidades' => '',
-               
-                
-                
             ];
             $this->view('pages/materias/agregar',$datos);
         }
@@ -47,13 +39,9 @@ class Materias extends Controller{
         if($_SERVER['REQUEST_METHOD']=='POST'){
             $datos = [
                 'id' => $id,
-                'nombre' => trim($_POST['nombre']),
-                'creditos' => trim($_POST['creditos']),
-                'unidades' => trim($_POST['unidades']),
-               
-                
-              
-                              
+                'nombre' => trim($_POST['inputNombre']),
+                'creditos' => trim($_POST['inputCreditos']),
+                'unidades' => trim($_POST['inputUnidades'])      
             ];
             if($this->materiaModel->actualizarMateria($datos)){
                 redireccionar('/materias');
@@ -68,11 +56,7 @@ class Materias extends Controller{
                 'id' => $materia['id'],
                 'nombre' => $materia['nombre'],
                 'creditos' => $materia['creditos'],
-                'unidades' => $materia['unidades'],
-               
-             
-                
-                
+                'unidades' => $materia['unidades']
             ];
             $this->view('pages/materias/editar',$datos);
 
@@ -87,10 +71,7 @@ class Materias extends Controller{
             'id' => $materia['id'],
             'nombre' => $materia['nombre'],
             'creditos' => $materia['creditos'],
-            'unidades' => $materia['unidades'],
-           
-         
-            
+            'unidades' => $materia['unidades']
             
         ];
 

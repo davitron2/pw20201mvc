@@ -23,6 +23,13 @@ fieldset.form-group {
     color: #3c3c3c;
 }
 
+.label-for-disabled{
+    position: absolute;
+    transform: translate3d(0, -100%, 0);
+    padding-left: 7px;
+    font-size: 92%;
+    color: #3c3c3c;
+}
 * {
     font-size: 16px;
     margin: 0;
