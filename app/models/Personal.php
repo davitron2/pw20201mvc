@@ -14,13 +14,17 @@ class Personal{
 
     public function agregarPersonal($datos){
         $bind=array( 
-                    $datos['usuario'],  
-                    $datos['contraseña'],
-                    $datos['tipoUsuario'],
+            $datos['usuario'],  
+            $datos['nombre'],  
+            $datos['apellidoP'],  
+            $datos['apellidoM'],  
+                 
+                    $datos['contrasena'],
+                  $datos['tipoUsuario'],
                     
                    
         );
-    $sql="INSERT INTO personal   (usuario,contraseña,tipoUsuario) VALUES (?,?,?)    ";
+    $sql="INSERT INTO personal   (usuario,nombre,apellidoP,apellidoM,contrasena,tipoUsuario) VALUES (?,?,?,?,?,?)    ";
     $resultado=$this->db->query($sql,$bind);
     return(is_array($resultado))?true:false;
     }
@@ -33,16 +37,19 @@ class Personal{
     }
     public function actualizarPersonal($datos){
         $bind=array( $datos['usuario'],
-                    $datos['contraseña'],  
+                    $datos['nombre'],  
+                    $datos['apellidoP'],
+                    $datos['apellidoM'],
+                    $datos['contrasena'],
                     $datos['tipoUsuario'],
-                    
                 
                     $datos['id']
         );
-        $sql="UPDATE  personal SET usuario=?, contraseña=?, tipoUsuario=?  where id=?";
+        $sql="UPDATE personal SET usuario=?, nombre=?, apellidoP=?, apellidoM=?,contrasena=?,tipoUsuario=?  where id=?";
         $resultado=$this->db->query($sql,$bind);
         return(is_array($resultado))?true:false;
     }
+
 
     public function borrarPersonal($id){
         $bind=array($id);

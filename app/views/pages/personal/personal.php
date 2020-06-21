@@ -3,7 +3,7 @@ include RUTA_APP . '/views/inc/header.inc.php'; ?>
 <div class="container-fluid">
     <div class="row bg-dark py-2 px-4">
         <div class="col">
-            <a href="#" class="text-white">Nuevo <i class="fas fa-file-alt"></i></a>
+            <a href="<?php echo RUTA_URL; ?>/personales/agregar" class="text-white">Nuevo <i class="fas fa-file-alt"></i></a>
         </div>
     </div>
     <div class="row mt-4 justify-content-center">
@@ -41,18 +41,22 @@ include RUTA_APP . '/views/inc/header.inc.php'; ?>
                     </tr>
                 </thead>
                 <tbody>
+                <?php foreach($datos['Personal'] as $personal): ?>
                     <tr>
-                        <td>1</td>
-                        <td>Alexander</td>
-                        <td>Montañez</td>
-                        <td>De La Rosa</td>
-                        <td>amont</td>
-                        <td>Administrativo</td>
+                    <td><?php echo $personal['id']; ?></td>
+                    <td><?php echo $personal['nombre']; ?></td>
+                    <td><?php echo $personal['apellidoP']; ?></td>
+                    <td><?php echo $personal['apellidoM']; ?></td>
+                    <td><?php echo $personal['usuario']; ?></td>
+                    <td><?php echo $personal['tipoUsuario']; ?></td>
+                 
+            
                         <td>
-                            <button type="button" class="btn btn-sm btn-warning"><i class="text-white fas fa-edit"></i></button>
-                            <button type="button" class="btn btn-sm btn-danger"><i class="text-white fas fa-trash"></i></button>
+                            <a    href="<?php echo RUTA_URL;?>/personales/editar/<?php echo $personal['id']; ?>"   class="btn btn-sm btn-warning"><i class="text-white fas fa-edit"></i></a>
+                            <a    href="<?php echo RUTA_URL;?>/personales/borrar/<?php echo $personal['id']; ?>"      class="btn btn-sm btn-danger"><i class="text-white fas fa-trash"></i></a>
                         </td>
                     </tr>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
         </div>

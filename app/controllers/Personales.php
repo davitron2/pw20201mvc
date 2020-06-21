@@ -18,47 +18,46 @@ class Personales extends Controller{
     public function agregar(){
         if($_SERVER['REQUEST_METHOD']=='POST'){
             $datos = [
-                'usuario' => trim($_POST['usuario']),
-                'contraseña' => trim($_POST['contraseña']),
-                'tipoUsuario' => trim($_POST['tipoUsuario']),
-               
-                
+                'nombre' => trim($_POST['inputNombre']),
+                'apellidoP' => trim($_POST['inputApellidoPaterno']),
+                'apellidoM' => trim($_POST['inputApellidoMaterno']),
+                'usuario' => trim($_POST['inputNombreUsuario']),
+                'contrasena' => trim($_POST['inputContrasena']),
+                'tipoUsuario' => trim($_POST['selectTipoUsuario']),
+            
             ];
             if($this->personalModel->agregarPersonal($datos)){
-                redireccionar('/personal');
+                redireccionar('/personales');
             } else {
-             
+                //TODO tratar errores
             }
 
         } else {
             $datos = [
-                'usuario' => '',
-                'contraseña' => '',
-                'tipoUsuario' => '',
-          
-                
-                
+                'nombre_usuario' => '',
+              
             ];
-            $this->view('pages/personal/personal',$datos);
+            $this->view('pages/personal/agregar',$datos);
         }
     }
 
+
     public function editar($id){
         if($_SERVER['REQUEST_METHOD']=='POST'){
+         
             $datos = [
                 'id' => $id,
-                'usuario' => trim($_POST['usuario']),
-                'contraseña' => trim($_POST['contraseña']),
-                'tipoUsuario' => trim($_POST['tipoUsuario']),
-           
-                
-              
-                              
+                'nombre' => trim($_POST['inputNombre']),
+                'apellidoP' => trim($_POST['inputApellidoPaterno']),
+                'apellidoM' => trim($_POST['inputApellidoMaterno']),
+                'usuario' => trim($_POST['inputNombreUsuario']),
+                'contrasena' => trim($_POST['inputContrasena']),
+                'tipoUsuario' => trim($_POST['selectTipoUsuario']),           
             ];
             if($this->personalModel->actualizarPersonal($datos)){
-                redireccionar('/personal');
+                redireccionar('/personales');
             } else {
-               
+                //TODO tratar errores
             }
 
         } else {
@@ -67,15 +66,14 @@ class Personales extends Controller{
             $datos = [
                 'id' => $personal['id'],
                 'usuario' => $personal['usuario'],
-                'contraseña' => $personal['contraseña'],
+                'nombre' => $personal['nombre'],
+                'apellidoP' => $personal['apellidoP'],
+                'apellidoM' => $personal['apellidoM'],
+                'contrasena' => $personal['contrasena'],
                 'tipoUsuario' => $personal['tipoUsuario'],
-               
-             
-                
-                
+           
             ];
             $this->view('pages/personal/editar',$datos);
-
         }
 
     }
@@ -86,9 +84,11 @@ class Personales extends Controller{
         $datos = [
             'id' => $personal['id'],
             'usuario' => $personal['usuario'],
-            
+            'nombre' => $personal['nombre'],
+            'apellidoP' => $personal['apellidoP'],
+            'apellidoM' => $personal['apellidoM'],
+            'contrasena' => $personal['contrasena'],
             'tipoUsuario' => $personal['tipoUsuario'],
-           
          
             
             
@@ -96,7 +96,7 @@ class Personales extends Controller{
 
             if($_SERVER['REQUEST_METHOD']=='POST'){
                 if($this->personalModel->borrarPersonal($id)){
-                    redireccionar('/personal');
+                    redireccionar('/personales');
                 } else {
             
                 }
