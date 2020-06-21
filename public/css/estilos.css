@@ -1,5 +1,31 @@
+
+.text-bold{
+    font-weight: bold;
+}
+fieldset.form-group {
+    position: relative;
+}
+
+.floating-label {
+    position: absolute;
+    top: 0;
+    padding: 7px 0 0 13px;
+    transition: all 200ms;
+    opacity: 0.8;
+    color: #808080;
+}
+
+.form-control:focus + .floating-label,
+.form-control:valid + .floating-label {
+    font-size: 92%;
+    transform: translate3d(0, -100%, 0);
+    opacity: 1;
+    color: #3c3c3c;
+}
+
 * {
     font-size: 16px;
     margin: 0;
     padding: 0;
 }
+
