@@ -6,11 +6,8 @@ class Reticulas extends Controller{
       
     }
     public function index(){
-        $Reticula=$this->reticulaModel->obtenerReticulas();
-
-
+        $Reticulas=$this->reticulaModel->obtenerReticulas();
         $datos = [
-            
             'Reticulas'=>$Reticulas
         ];
         $this->view('pages/reticulas/reticulas',$datos);
@@ -31,7 +28,7 @@ class Reticulas extends Controller{
         } else {
             $datos = [
                 'carrera' => '',
-                'año' => '',
+                'anio' => '',
                 
                 
             ];

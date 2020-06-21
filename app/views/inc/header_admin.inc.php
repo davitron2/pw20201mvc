@@ -18,7 +18,10 @@
                     <a class="nav-link" href="#">Aulas</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Materias</a>
+                    <a class="nav-link" href="<?php echo RUTA_URL ?>/materias">Materias</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?php echo RUTA_URL ?>/reticulas">Retículas</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Grupos</a>
