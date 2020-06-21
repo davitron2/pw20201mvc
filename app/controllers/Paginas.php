@@ -10,7 +10,7 @@ class Paginas extends Controller{
         $datos = [
             'titulo'=>'Bienvenido: '
         ];
-        $this->view('pages/dashboard', $datos);
+        $this->view('pages/logins/logins', $datos);
     }
 }
 
