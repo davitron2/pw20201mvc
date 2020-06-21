@@ -1,6 +1,6 @@
 <?php
 
-class Personal extends Controller{
+class Personales extends Controller{
     public function __construct(){
         $this->personalModel=$this->model('Personal');
       
