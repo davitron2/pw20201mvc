@@ -15,7 +15,7 @@
                     <a class="nav-link" href="<?php echo RUTA_URL ?>/personales">Personal</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Aulas</a>
+                    <a class="nav-link" href="<?php echo RUTA_URL ?>/aulas">Aulas</a>
                 </li>
               
                 <li class="nav-item">
