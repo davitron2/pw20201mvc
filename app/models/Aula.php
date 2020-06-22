@@ -18,7 +18,7 @@ class Aula{
                    
                    
         );
-    $sql="INSERT INTO aula SELECT (nombre) values (?)";
+    $sql="INSERT INTO aula (nombre) values (?)";
     $resultado=$this->db->query($sql,$bind);
     return(is_array($resultado))?true:false;
     }
