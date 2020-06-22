@@ -12,8 +12,9 @@ include RUTA_APP . '/views/inc/header.inc.php'; ?>
             <form action="<?php echo RUTA_URL;?>/personales/editar/<?php echo $datos['id']; ?>" method="post" enctype="multipart/form-data">
                 <div class="row form-group">
                     <div class="col-6 col-lg-3  mt-3 mb-2">
+                    <label for="inputNombre" class="label-for-disabled">Id</label>
                         <input id="inputID"  name="inputID" type="text" class="form-control"   value="<?php echo $datos['id']; ?>" required disabled>
-                        <label for="inputID" class="floating-label"></label>
+                    
                     </div>
                 </div>
                 <div class="row form-group">
@@ -45,13 +46,14 @@ include RUTA_APP . '/views/inc/header.inc.php'; ?>
                         <label for="inputNombreUsuario" class="floating-label">Nombre de usuario</label>
                     </div>
                     <div class="col-lg-6 mb-2">
+                    <label for="inputContrasena" class="label-for-disabled">Contraseña</label>
                         <input   name="inputContrasena" id="inputContrasena" type="password" class="form-control" autocomplete="off" required> 
-                        <label for="inputContrasena" class="floating-label">Contraseña</label>
+                       
                     </div>
                 </div>
                 <div class="row">
                     <div class="col text-center">
-                        <button type="submit" class="btn btn-success">Guardar <i class="fas fa-save"></i></button>
+                    <button type="submit" class="btn btn-success">Guardar <i class="text-white fas fa-save"></i></button>
                     </div>
                 </div>
             </form>
