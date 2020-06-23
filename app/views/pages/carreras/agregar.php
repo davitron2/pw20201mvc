@@ -26,7 +26,7 @@ include RUTA_APP . '/views/inc/header.inc.php'; ?>
                 
                 <div class="row">
                     <div class="col text-center">
-                        <button type="submit" class="btn btn-success">Guardar <i class="fas fa-save"></i></button>
+                        <button type="submit" class="btn btn-success">Guardar <i class="fas fa-save text-white"></i></button>
                     </div>
                 </div>
             </form>

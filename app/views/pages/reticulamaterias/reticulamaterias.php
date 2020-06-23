@@ -4,22 +4,6 @@ include RUTA_APP . '/views/inc/header.inc.php'; ?>
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <div class="container-fluid">
     <div class="row py-2 px-4">
         <div class="col">
@@ -47,26 +31,15 @@ include RUTA_APP . '/views/inc/header.inc.php'; ?>
             <table class="table table-striped">
                 <thead>
                     <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Carrera</th>
-                    <th scope="col">Créditos máximos por periodo</th>
-                    <th scope="col">Año de registro</th>
-                    <th scope="col">Opciones</th>
+                        <th scope="col">ID</th>
+                        <th scope="col">Carrera Retícula</th>
+                        <th scope="col">Año Retícula</th>
+                        <th scope="col">Materia</th>
+                        <th scope="col">Opciones</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach($datos['Reticulas'] as $personal): ?>
-                        <tr>
-                        <td><?php echo $personal['id']; ?></td>
-                        <td><?php echo $personal['nombre']; ?></td>
-                        <td><?php echo $personal['max_creditos']; ?></td>
-                        <td><?php echo $personal['anio']; ?></td>
-                            <td>
-                                <a    href="<?php echo RUTA_URL;?>/reticulas/editar/<?php echo $personal['id']; ?>"   class="btn btn-sm btn-warning"><i class="text-white fas fa-edit"></i></a>
-                                <a    href="<?php echo RUTA_URL;?>/reticulas/borrar/<?php echo $personal['id']; ?>"      class="btn btn-sm btn-danger"><i class="text-white fas fa-trash"></i></a>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
+                    
                 </tbody>
             </table>
         </div>

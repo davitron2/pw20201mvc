@@ -1,29 +1,25 @@
 <?php
 
-class ReticulaMasMa extends Controller{
+class ReticulaMaterias extends Controller{
     public function __construct(){
-        $this->reticulaMaModel=$this->model('ReticulaMa');
+        $this->reticulaMatariaModel=$this->model('ReticulaMateria');
       
     }
     public function index(){
-        $ReticulaMa=$this->reticulaMaModel->obtenerReticulaMasMa();
-
-
+        $ReticulaMa=$this->reticulaMatariaModel->obtenerRerticulaMaterias();
         $datos = [
-            
-            'ReticulaMasMa'=>$ReticulaMasMa
+            'ReticulaMasMa'=>$ReticulaMa
         ];
-        $this->view('pages/reticulaMasMa/reticulaMasMa',$datos);
+        $this->view('pages/reticulamaterias/reticulamaterias',$datos);
     }
     public function agregar(){
         if($_SERVER['REQUEST_METHOD']=='POST'){
             $datos = [
-                'materia' => trim($_POST['materia']),
-                'semestre' => trim($_POST['semestre']),
-                
+                'idReticula' => trim($_POST['inputReticula']),
+                'idMateria' => trim($_POST['inputSemestre'])
             ];
-            if($this->reticulaMaModel->agregarReticulaMa($datos)){
-                redireccionar('/reticulaMasMa');
+            if($this->reticulaMatariaModel->agregarReticulaMa($datos)){
+                redireccionar('/reticulamaterias');
             } else {
              
             }
@@ -35,7 +31,7 @@ class ReticulaMasMa extends Controller{
                 
                 
             ];
-            $this->view('pages/reticulaMasMa/agregar',$datos);
+            $this->view('pages/reticulamaterias/agregar',$datos);
         }
     }
 
