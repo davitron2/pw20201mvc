@@ -12,6 +12,33 @@ class Personal{
         return $resultados;
     }
 
+
+    public function     buscarPersonal($datos){
+        $bind=array($datos['buscado']);
+
+
+
+        if ($datos['opcion'] == 1) {
+
+            $resultados=$this->db->query("SELECT * FROM personal  where id=? ",$bind);
+
+        }
+
+         elseif ($datos['opcion'] == 2) {
+            $resultados=$this->db->query("SELECT * FROM personal where nombre=?",$bind);
+        } 
+        
+        elseif ($datos['opcion'] == 3) {
+            $resultados=$this->db->query("SELECT * FROM personal where apellidoP=?",$bind);
+        }
+
+       
+        return $resultados;
+    }
+
+
+
+
     public function agregarPersonal($datos){
         $bind=array( 
             $datos['usuario'],  
