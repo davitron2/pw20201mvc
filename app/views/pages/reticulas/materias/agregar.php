@@ -16,7 +16,8 @@ include RUTA_APP . '/views/inc/header.inc.php'; ?>
                 <div class="col-md-3">
                     <select class="form-control" id="selectBuscador">
                         <option>ID</option>
-                        <option>Carrera</option>
+                        <option>Nombre</option>
+                        <option>Creditos</option>
                     </select>
                 </div>
             </div>
@@ -28,11 +29,11 @@ include RUTA_APP . '/views/inc/header.inc.php'; ?>
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Materia</th>
-                        <th scope="col">Créditos</th>
-                        <th scope="col">Unidades</th>
-                        <th scope="col">Opciones</th>
+                    <th scope="col">ID</th>
+                    <th scope="col">Materia</th>
+                    <th scope="col">Creditos</th>
+                    <th scope="col">Unidades</th>
+                    <th scope="col">Opciones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -43,7 +44,8 @@ include RUTA_APP . '/views/inc/header.inc.php'; ?>
                         <td><?php echo $personal['creditos']; ?></td>
                         <td><?php echo $personal['unidades']; ?></td>
                             <td>
-                                <a href="<?php echo RUTA_URL;?>/materias/borrar/<?php echo $personal['id']; ?>"      class="btn btn-sm btn-danger"><i class="text-white fas fa-trash"></i></a>
+                                <a    href="<?php echo RUTA_URL;?>/materias/editar/<?php echo $personal['id']; ?>"   class="btn btn-sm btn-warning"><i class="text-white fas fa-edit"></i></a>
+                                <a    href="<?php echo RUTA_URL;?>/materias/borrar/<?php echo $personal['id']; ?>"      class="btn btn-sm btn-danger"><i class="text-white fas fa-trash"></i></a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
