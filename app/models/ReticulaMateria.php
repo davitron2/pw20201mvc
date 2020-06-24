@@ -7,8 +7,10 @@ class ReticulaMateria{
         $this->db=new Base;
     }
 
-    public function obtenerRerticulaMaterias(){
-        $resultados=$this->db->query("SELECT * FROM reticula_materia");
+    public function obtenerRerticulaMaterias($id){
+        $bind=array($id);
+        $sql="SELECT * FROM reticula_materia WHERE idReticula = ?";
+        $resultados=$this->db->query($sql,$bind);
         return $resultados;
     }
 

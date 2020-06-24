@@ -5,12 +5,12 @@ class ReticulaMaterias extends Controller{
         $this->reticulaMatariaModel=$this->model('ReticulaMateria');
       
     }
-    public function index(){
-        $ReticulaMa=$this->reticulaMatariaModel->obtenerRerticulaMaterias();
+    public function index($id){
+        $ReticulaMa=$this->reticulaMatariaModel->obtenerRerticulaMaterias($id);
         $datos = [
-            'ReticulaMasMa'=>$ReticulaMa
+            'materias'=>$ReticulaMa
         ];
-        $this->view('pages/reticulamaterias/reticulamaterias',$datos);
+        $this->view('pages/reticulas/materias/materias',$datos);
     }
     public function agregar(){
         if($_SERVER['REQUEST_METHOD']=='POST'){
