@@ -9,7 +9,7 @@
                     <a class="nav-link" href="<?php echo RUTA_URL ?>/logins/logins">Inicio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Alumnos</a>
+                    <a class="nav-link" href="<?php echo RUTA_URL ?>/alumnos">Alumnos</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="<?php echo RUTA_URL ?>/personales">Personal</a>
