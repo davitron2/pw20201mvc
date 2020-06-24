@@ -8,7 +8,9 @@ class Alumno{
     }
 
     public function obtenerAlumnos(){
-        $resultados=$this->db->query("SELECT * FROM Alumno");
+        $resultados=$this->db->query("SELECT noControl,nombres,apellidoP,apellidoM,semestre,idReticula,carrera.nombre 
+        from alumno,reticula,carrera
+        WHERE idReticula= reticula.id AND reticula.idCarrera=carrera.id");
         return $resultados;
     }
 
@@ -18,9 +20,12 @@ class Alumno{
                     $datos['apellidoP'],
                     $datos['apellidoM'],
                     $datos['NIP'],
+               
+                    $datos['semestre'],
+                    $datos['idReticula'],
                    
         );
-    $sql="INSERT INTO Alumno  SELECT CONCAT( YEAR(NOW()),COUNT(noControl)+1) , ?,?,?,?    FROM Alumno";
+    $sql="INSERT INTO Alumno  SELECT CONCAT( YEAR(NOW()),COUNT(noControl)+1) , ?,?,?,?,?,?    FROM Alumno";
     $resultado=$this->db->query($sql,$bind);
     return(is_array($resultado))?true:false;
     }
@@ -36,10 +41,12 @@ class Alumno{
                     $datos['apellidoP'],  
                     $datos['apellidoM'],
                     $datos['NIP'],
+                    $datos['semestre'],
+                    $datos['idReticula'],
                 
                     $datos['noControl']
         );
-        $sql="UPDATE  Alumno SET nombres=?, apellidoP=?, apellidoM=?, NIP=?  where noControl=?";
+        $sql="UPDATE  Alumno SET nombres=?, apellidoP=?, apellidoM=?, NIP=?,semestre=?,idReticula=?  where noControl=?";
         $resultado=$this->db->query($sql,$bind);
         return(is_array($resultado))?true:false;
     }
