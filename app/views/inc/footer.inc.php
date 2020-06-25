@@ -11,9 +11,6 @@
         $('[data-toggle="tooltip"]').tooltip()
     });
 </script>
-
-   
-   
     <script src="<?php echo RUTA_URL;?>/js/custom.js"></script>
     <script src="<?php echo RUTA_URL;?>/js/navbars.js"></script>
 

@@ -1,8 +1,6 @@
 <?php session_start();
 include RUTA_APP . '/views/inc/header.inc.php'; ?>
 
-
-
 <div class="container-fluid">
     <div class="row py-2 px-4">
         <div class="col">
