@@ -6,7 +6,12 @@ include RUTA_APP . '/views/inc/header.inc.php'; ?>
 <div class="container-fluid">
     <div class="row py-2 px-4">
         <div class="col">
-            <a href="<?php echo RUTA_URL; ?>/materias/agregar" class="text-secondary">Nuevo <i class="fas fa-file-alt"></i></a>
+            <a href="<?php echo RUTA_URL; ?>/materias/agregar/<?php echo $id; ?>" class="text-secondary">Nuevo <i class="fas fa-file-alt"></i></a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 text-center">
+            <h5>Agregar Materia</h5>
         </div>
     </div>
     <div class="row mt-4 justify-content-center">

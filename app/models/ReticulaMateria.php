@@ -7,24 +7,27 @@ class ReticulaMateria{
         $this->db=new Base;
     }
 
-    public function obtenerRerticulaMaterias($id){
+    public function obtenerReticulaMaterias($id){
         $bind=array($id);
-        $sql="SELECT * FROM reticula_materia WHERE idReticula = ?";
+        $sql="SELECT reticula_materia.id, reticula_materia.idMateria, materia.nombre, materia.creditos, materia.unidades 
+            FROM reticula_materia  
+            INNER JOIN materia ON reticula_materia.idMateria = materia.id 
+            WHERE idReticula = ?";
         $resultados=$this->db->query($sql,$bind);
         return $resultados;
     }
 
-    public function agregarRerticulaMa($datos){
+    public function agregarReticulaMa($datos){
         $bind=array( 
                     $datos['idReticula'],  
                     $datos['idMateria']
         );
-    $sql="INSERT INTO reticula_materia (idReticula,idMateria) values (?,?)";
-    $resultado=$this->db->query($sql,$bind);
-    return(is_array($resultado))?true:false;
+        $sql="INSERT INTO reticula_materia (idReticula,idMateria) values (?,?)";
+        $resultado=$this->db->query($sql,$bind);
+        return(is_array($resultado))?true:false;
     }
 
-    public function obtenerRerticulaMaId($id){
+    public function obtenerReticulaMaId($id){
         $bind=array($id);
         $sql="SELECT * FROM reticula_materia WHERE id=?";
         $renglon=$this->db->queryRenglon($sql,$bind);
@@ -41,7 +44,7 @@ class ReticulaMateria{
         return(is_array($resultado))?true:false;
     }
 
-    public function borrarRerticulaMa($id){
+    public function borrarReticulaMa($id){
         $bind=array($id);
         $sql="DELETE FROM reticula_materia WHERE id=?";
         $resultado=$this->db->query($sql,$bind);

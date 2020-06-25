@@ -47,7 +47,7 @@ include RUTA_APP . '/views/inc/header.inc.php'; ?>
                             <td>
                                 <a    href="<?php echo RUTA_URL;?>/reticulas/editar/<?php echo $personal['id']; ?>"   class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="top" title="Editar retícula"><i class="text-white fas fa-edit"></i></a>
                                 <a    href="<?php echo RUTA_URL;?>/reticulas/borrar/<?php echo $personal['id']; ?>"      class="btn btn-sm btn-danger" data-toggle="tooltip" data-placement="top" title="Eliminar retícula"><i class="text-white fas fa-trash"></i></a>
-                                <a    href="<?php echo RUTA_URL;?>/reticulamaterias/<?php echo $personal['id']; ?>"      class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="top" title="Añadir materia"><i class="text-white fas fa-book"></i></a>
+                                <a    href="<?php echo RUTA_URL;?>/reticulamaterias/<?php echo $personal['id']; ?>"      class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="top" title="Ver materias en retícula"><i class="text-white fas fa-book"></i></a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
