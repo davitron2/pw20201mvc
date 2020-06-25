@@ -8,7 +8,7 @@ class Reticula{
     }
 
     public function obtenerReticulas(){
-        $resultados=$this->db->query("SELECT * FROM reticula");
+        $resultados=$this->db->query("SELECT reticula.id,  carrera.nombre, reticula.max_creditos, reticula.anio FROM reticula JOIN carrera ON carrera.id = reticula.idCarrera");
         return $resultados;
     }
 
@@ -19,14 +19,14 @@ class Reticula{
     }
 
     public function agregarReticula($datos){
-        $bind=array( 
-                    $datos['idCarrera'],  
-                    $datos['año'], 
-                   
+        $bind=array(
+                $datos['max_creditos'],
+                $datos['anio'],
+                $datos['idCarrera'],
         );
-    $sql="INSERT INTO reticula SELECT (carrera,año) values (?,?)";
-    $resultado=$this->db->query($sql,$bind);
-    return(is_array($resultado))?true:false;
+        $sql="INSERT INTO reticula (max_creditos,anio,idCarrera) values (?,?,?)";
+        $resultado=$this->db->query($sql,$bind);
+        return(is_array($resultado))?true:false;
     }
 
     public function obtenerReticulaId($id){
@@ -44,12 +44,13 @@ class Reticula{
     }
 
     public function actualizarReticula($datos){
-        $bind=array( $datos['carrera'],
-        $datos['año'],
-                
-                    $datos['id']
+        $bind=array( 
+            $datos['idCarrera'],  
+            $datos['anio'], 
+            $datos['max_creditos'],
+            $datos['id']
         );
-        $sql="UPDATE  reticula SET carrera=?,año=? where id=?";
+        $sql="UPDATE reticula SET idCarrera=?,anio=?,max_creditos=? where id=?";
         $resultado=$this->db->query($sql,$bind);
         return(is_array($resultado))?true:false;
     }
