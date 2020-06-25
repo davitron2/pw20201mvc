@@ -5,19 +5,19 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
-                <li class="nav-item active">
+                <li id="nav-item-1" class="nav-item">
                     <a class="nav-link" href="<?php echo RUTA_URL ?>/logins/logins">Inicio</a>
                 </li>
-                <li class="nav-item">
+                <li id="nav-item-2" class="nav-item">
                     <a class="nav-link" href="#">Horarios</a>
                 </li>
-                <li class="nav-item">
+                <li id="nav-item-3" class="nav-item">
                     <a class="nav-link" href="#">Grupos</a>
                 </li>
-                <li class="nav-item">
+                <li id="nav-item-4" class="nav-item">
                     <a class="nav-link" href="#">Cambio de NIP</a>
                 </li>
-                <li class="nav-item">
+                <li id="cerrar-sesion" class="nav-item">
                     <a class="nav-link" href="<?php echo RUTA_URL ?>/auths/logout">Cerrar sesi&oacute;n</a>
                 </li>
             </ul>
