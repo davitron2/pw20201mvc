@@ -78,6 +78,42 @@ class Personales extends Controller{
 
     }
 
+
+
+
+public function buscar(){
+
+    if($_SERVER['REQUEST_METHOD']=='GET'){
+        $datos = [
+            'buscado' => trim($_GET['inputBuscador']),
+        
+            'opcion' => trim($_GET['selectBuscador']),
+        
+        ];
+
+        $Personal=$this->personalModel->buscarPersonal($datos);
+
+
+        $datos = [
+            
+            'Personal'=>$Personal,
+             'tipoVista'=>1
+        ];
+        $this->view('pages/personal/personal',$datos);
+
+    } 
+
+
+
+
+}
+
+
+
+
+
+
+
     public function borrar($id){
         $personal=$this->personalModel->obtenerPersonalId($id);
 

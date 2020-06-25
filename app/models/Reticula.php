@@ -12,6 +12,12 @@ class Reticula{
         return $resultados;
     }
 
+
+    public function obtenerReticulasNombre(){
+        $resultados=$this->db->query("SELECT reticula.id, CONCAT(carrera.nombre,': ',reticula.id) as nombre FROM reticula,carrera where reticula.idCarrera=carrera.id");
+        return $resultados;
+    }
+
     public function agregarReticula($datos){
         $bind=array(
                 $datos['max_creditos'],
@@ -29,6 +35,14 @@ class Reticula{
         $renglon=$this->db->queryRenglon($sql,$bind);
         return $renglon;
     }
+
+    public function obtenerReticulaIdNombre($id){
+        $bind=array($id);
+        $sql="SELECT  CONCAT(carrera.nombre,': ',reticula.id) as nombre FROM reticula,carrera      where reticula.idCarrera=carrera.id and reticula.id=?";
+        $renglon=$this->db->queryRenglon($sql,$bind);
+        return $renglon;
+    }
+
     public function actualizarReticula($datos){
         $bind=array( 
             $datos['idCarrera'],  

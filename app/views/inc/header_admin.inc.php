@@ -5,39 +5,34 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
-                <li class="nav-item active">
+                <li id="nav-item-1" class="nav-item active">
                     <a class="nav-link" href="<?php echo RUTA_URL ?>/logins/logins">Inicio</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Alumnos</a>
+                <li id="nav-item-2" class="nav-item">
+                    <a class="nav-link" href="<?php echo RUTA_URL ?>/alumnos">Alumnos</a>
                 </li>
-                <li class="nav-item">
+                <li id="nav-item-3" class="nav-item">
                     <a class="nav-link" href="<?php echo RUTA_URL ?>/personales">Personal</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Aulas</a>
+                <li id="nav-item-4" class="nav-item">
+                    <a class="nav-link" href="<?php echo RUTA_URL ?>/aulas">Aulas</a>
                 </li>
-              
-                <li class="nav-item">
-
+                <li id="nav-item-5" class="nav-item">
                     <a class="nav-link" href="<?php echo RUTA_URL ?>/materias">Materias</a>
                 </li>
-              
-                <li class="nav-item">
+                <li id="nav-item-6" class="nav-item">
                     <a class="nav-link" href="<?php echo RUTA_URL ?>/reticulas">Retículas</a>
                 </li>
-              
-                <li class="nav-item">
-                 <a class="nav-link" href="<?php echo RUTA_URL ?>/carreras">Carreras</a>
+                <li id="nav-item-7" class="nav-item">
+                    <a class="nav-link" href="<?php echo RUTA_URL ?>/carreras">Carreras</a>
                 </li>
-              
-                <li class="nav-item">
+                <li id="nav-item-8" class="nav-item">
                     <a class="nav-link" href="#">Grupos</a>
                 </li>
-                <li class="nav-item">
+                <li id="nav-item-9" class="nav-item">
                     <a class="nav-link" href="#">Cambio de NIP</a>
                 </li>
-                <li class="nav-item">
+                <li id="cerrar-sesion" class="nav-item">
                     <a class="nav-link" href="<?php echo RUTA_URL ?>/auths/logout">Cerrar sesi&oacute;n</a>
                 </li>
             </ul>
