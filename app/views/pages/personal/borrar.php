@@ -25,11 +25,7 @@ include RUTA_APP . '/views/inc/header.inc.php'; ?>
                     </div>
                     <div class="col-lg-6 mb-2">
                     <label for="inputContrasena" class="label-for-disabled">Tipo de usuario</label>
-                        <select id="selectTipoUsuario"   name="selectTipoUsuario"  value="<?php echo $datos['tipoUsuario']; ?>"  class="form-control"  disabled required>
-                            <option value="1">Administrativo</option>
-                            <option value="2">Docente</option>
-                        </select> 
-                       
+                    <input id="inputNombre"   name="inputNombre" type="text" class="form-control" value="<?php echo $datos['tipoUsuario']; ?>"  disabled required>
               
                     </div>
                 </div>

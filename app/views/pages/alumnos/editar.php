@@ -43,6 +43,7 @@ include RUTA_APP . '/views/inc/header.inc.php'; ?>
                     </div>
                     <div class="col-lg-6 mb-2">
                         <select id="selectReticula"   name="selectReticula"   class="form-control" required>
+                        <option value="" selected disabled hidden></option>
                         <?php foreach($datos['Reticulas'] as $reticulas): ?>
                                 <option value=<?php echo $reticulas['id']; ?>>
                                     <?php echo $reticulas['nombre']; ?>

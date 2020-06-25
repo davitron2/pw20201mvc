@@ -41,20 +41,22 @@ include RUTA_APP . '/views/inc/header.inc.php'; ?>
                     </div>
                     <div class="col-lg-6 mb-2">
                         <select id="selectReticula"   name="selectReticula"   class="form-control" required>
+                        <option value="" selected disabled hidden></option>
                         <?php foreach($datos['Reticulas'] as $reticulas): ?>
                                 <option value=<?php echo $reticulas['id']; ?>>
                                     <?php echo $reticulas['nombre']; ?>
                                 </option>
                             <?php endforeach; ?>
                         </select> 
-                        <label for="selectTipoUsuario" class="floating-label">Reticula y Carrera</label>
+                        <label for="selectTipoUsuario" class="floating-label">Reticula y carrera</label>
                     </div>
                 </div>
                 <div class="row form-group">
                  
                     <div class="col-lg-6 mb-2">
                         <select id="selectSemestre"   name="selectSemestre"   class="form-control" required>
-                            <option value="1">1</option>
+                        <option value="" selected disabled hidden></option>
+                           <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
                             <option value="4">4</option>

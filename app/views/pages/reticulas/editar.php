@@ -19,6 +19,7 @@ include RUTA_APP . '/views/inc/header.inc.php'; ?>
                 <div class="row form-group">
                     <div class="col-lg-6 mb-2">
                         <select name="selectCarrera" id="selectCarrera" class="form-control" required>
+                        <option value="" selected disabled hidden></option>
                             <?php foreach($datos['Carreras'] as $carreras): ?>
                                 <option value=<?php echo $carreras['id']; ?>>
                                     <?php echo $carreras['nombre']; ?>

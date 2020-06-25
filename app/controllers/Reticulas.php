@@ -69,13 +69,13 @@ class Reticulas extends Controller{
 
     public function borrar($id){
         $reticula=$this->reticulaModel->obtenerReticulaId($id);
-        $Carreras=$this->carreraModel->obtenerCarreras();
+       
         $datos = [
             'id' => $reticula['id'],
             'idCarrera' => $reticula['idCarrera'],
             'anio' => $reticula['anio'],
             'max_creditos'=> $reticula['max_creditos'],
-            'Carreras' => $Carreras
+            'nombreCarrera'=> $reticula['nombre'],
         ];
 
             if($_SERVER['REQUEST_METHOD']=='POST'){

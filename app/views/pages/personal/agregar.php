@@ -23,10 +23,11 @@ include RUTA_APP . '/views/inc/header.inc.php'; ?>
                     </div>
                     <div class="col-lg-6 mb-2">
                         <select id="selectTipoUsuario"   name="selectTipoUsuario"   class="form-control" required>
+                        <option value="" selected disabled hidden></option>
                             <option value="1">Administrativo</option>
                             <option value="2">Docente</option>
                         </select> 
-                        <label for="selectTipoUsuario" class="floating-label">Tipo de Usuario</label>
+                        <label for="selectTipoUsuario" class="floating-label">Tipo usuario</label>
                     </div>
                 </div>
                 <div class="row form-group">

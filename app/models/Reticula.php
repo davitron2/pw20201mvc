@@ -31,7 +31,8 @@ class Reticula{
 
     public function obtenerReticulaId($id){
         $bind=array($id);
-        $sql="SELECT * FROM reticula WHERE id=?";
+        $sql="SELECT reticula.id, reticula.idCarrera,reticula.anio,reticula.max_creditos,carrera.nombre as nombre from reticula,carrera 
+        WHERE reticula.idCarrera=carrera.id and reticula.id=?";
         $renglon=$this->db->queryRenglon($sql,$bind);
         return $renglon;
     }
