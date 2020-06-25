@@ -8,7 +8,7 @@ class Reticula{
     }
 
     public function obtenerReticulas(){
-        $resultados=$this->db->query("SELECT * FROM reticula JOIN carrera ON carrera.id = reticula.idCarrera");
+        $resultados=$this->db->query("SELECT reticula.id,  carrera.nombre, reticula.max_creditos, reticula.anio FROM reticula JOIN carrera ON carrera.id = reticula.idCarrera");
         return $resultados;
     }
 
