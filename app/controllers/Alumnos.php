@@ -3,6 +3,7 @@
 class Alumnos extends Controller{
     public function __construct(){
         $this->alumnoModel=$this->model('Alumno');
+        $this->reticulaModel=$this->model('Reticula');
       
     }
     public function index(){
@@ -18,10 +19,12 @@ class Alumnos extends Controller{
     public function agregar(){
         if($_SERVER['REQUEST_METHOD']=='POST'){
             $datos = [
-                'nombres' => trim($_POST['nombres']),
-                'apellidoP' => trim($_POST['apellidoP']),
-                'apellidoM' => trim($_POST['apellidoM']),
-                'NIP' => trim($_POST['NIP']),
+                'nombres' => trim($_POST['inputNombres']),
+                'apellidoP' => trim($_POST['inputApellidoPaterno']),
+                'apellidoM' => trim($_POST['inputApellidoMaterno']),
+                'NIP' => trim($_POST['inputNIP']),
+                'idReticula'=> trim($_POST['selectReticula']),
+                'semestre'=> trim($_POST['selectSemestre']),
                 
             ];
             if($this->alumnoModel->agregarAlumno($datos)){
@@ -31,11 +34,13 @@ class Alumnos extends Controller{
             }
 
         } else {
+            $Reticulas=$this->reticulaModel->obtenerReticulasNombre();
             $datos = [
                 'nombres' => '',
                 'apellidoP' => '',
                 'apellidoM' => '',
                 'NIP' => '',
+                'Reticulas'=>$Reticulas
                 
                 
             ];
@@ -47,10 +52,12 @@ class Alumnos extends Controller{
         if($_SERVER['REQUEST_METHOD']=='POST'){
             $datos = [
                 'noControl' => $noControl,
-                'nombres' => trim($_POST['nombres']),
-                'apellidoP' => trim($_POST['apellidoP']),
-                'apellidoM' => trim($_POST['apellidoM']),
-                'NIP' => trim($_POST['NIP']),
+                'nombres' => trim($_POST['inputNombres']),
+                'apellidoP' => trim($_POST['inputApellidoPaterno']),
+                'apellidoM' => trim($_POST['inputApellidoMaterno']),
+                'idReticula' => trim($_POST['selectReticula']),
+                'semestre' => trim($_POST['selectSemestre']),
+                'NIP' => trim($_POST['inputNIP']),
                 
               
                               
@@ -63,13 +70,17 @@ class Alumnos extends Controller{
 
         } else {
             $alumno=$this->alumnoModel->obtenerAlumnoNoControl($noControl);
+            $Reticulas=$this->reticulaModel->obtenerReticulasNombre();
 
             $datos = [
                 'noControl' => $alumno['noControl'],
                 'nombres' => $alumno['nombres'],
                 'apellidoP' => $alumno['apellidoP'],
                 'apellidoM' => $alumno['apellidoM'],
-               
+                'semestre' => $alumno['semestre'],
+                'idReticula' => $alumno['idReticula'],
+                'semestre' => $alumno['semestre'],
+                'Reticulas'=>$Reticulas
              
                 
                 
@@ -82,14 +93,16 @@ class Alumnos extends Controller{
 
     public function borrar($noControl){
         $alumno=$this->alumnoModel->obtenerAlumnoNoControl($noControl);
-
+        $Reticulas=$this->reticulaModel->obtenerReticulaIdNombre($alumno['idReticula']);
+                          
         $datos = [
             'noControl' => $alumno['noControl'],
             'nombres' => $alumno['nombres'],
             'apellidoP' => $alumno['apellidoP'],
             'apellidoM' => $alumno['apellidoM'],
-           
-         
+            'semestre' => $alumno['semestre'],
+            'idReticula' => $alumno['idReticula'],
+            'nombreReticula' => $Reticulas['nombre'],
             
             
         ];
