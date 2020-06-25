@@ -5,7 +5,11 @@ include RUTA_APP . '/views/inc/header.inc.php'; ?>
     <div class="row py-2 px-4">
         <div class="col">
             <a href="<?php echo RUTA_URL; ?>/reticulamaterias/agregar/<?php echo $datos['id']; ?>" class="text-secondary">Agregar materia <i class="fas fa-file-alt"></i></a>
-        
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 text-center">
+            <h5>Materias en Retícula</h5>
         </div>
     </div>
     <div class="row mt-4 justify-content-center">
