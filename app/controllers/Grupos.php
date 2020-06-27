@@ -4,6 +4,7 @@ class  Grupos extends Controller{
     public function __construct(){
         $this->grupoModel=$this->model('Grupo');
         $this->materiaModel=$this->model('Materia');
+        $this->profesorModel=$this->model('Personal');
     }
     public function index(){
         $Grupos=$this->grupoModel->obtenerGrupos();
@@ -12,14 +13,25 @@ class  Grupos extends Controller{
         ];
         $this->view('pages/grupos/grupos',$datos);
     }
+    public function horarios($id){
+        $Horarios = $this ->grupoModel->obtenerHorariosGrupo($id);
+        $datos = [
+            'idGrupo'=>$id,
+            'Horarios'=>$Horarios
+        ];
+        
+        $this->view('pages/grupos/horarios',$datos);
+    }
+
     public function agregar(){
         if($_SERVER['REQUEST_METHOD']=='POST'){
             $datos = [
-                'idMateria' => trim($_POST['idMateria']),
-                'idProfesor' => trim($_POST['idProfesor']),
-                'grupo' => trim($_POST['grupo']),
-                'limite' => trim($_POST['limite'])
+                'idMateria' => trim($_POST['inputIdMateria']),
+                'idProfesor' => trim($_POST['inputIdProfesor']),
+                'grupo' => trim($_POST['inputGrupo']),
+                'limite' => trim($_POST['inputLimite'])
             ];
+            print_r($datos);
             if($this->grupoModel->agregarGrupo($datos)){
                 redireccionar('/grupos');
             } else {
@@ -37,6 +49,31 @@ class  Grupos extends Controller{
         }
     }
 
+    public function agregarHorario($idGrupo){
+        if($_SERVER['REQUEST_METHOD']=='POST'){
+            $datos = [
+                'id' => trim($_POST['inputID']),
+                'idGrupo' => $idGrupo,
+                'idAula' => trim($_POST['inputIdAula']),
+                'diaSemana' => trim($_POST['selectDiaSemana']),
+                'horaInicio' => trim($_POST['inputHoraInicio']),
+                'horaFin' => trim($_POST['inputHoraFin'])
+            ];
+            if(empty($datos['id'])){
+                if($this->grupoModel->validarHorarioAula($datos)){
+                    //el aula está ocupada
+                }else if($this->grupoModel->validarHorarioProfe($datos)){
+                    //el profesor ya tiene una clase registrada a esa hora
+                }else{
+                    if($this->grupoModel->agregarHorario($datos)){
+                        redireccionar('/grupos/horarios/'.$idGrupo);
+                    }
+                }
+            }else{
+
+            }
+        }
+    }
     public function editar($id){
         if($_SERVER['REQUEST_METHOD']=='POST'){
             $datos = [
@@ -85,15 +122,12 @@ class  Grupos extends Controller{
             }
             $this->view('pages/grupos/borrar',$datos);
     }
+    
+    public function borrarHorario($id){
+        if($this->grupoModel->borrarHorario($id)){
 
-    public function obtenerMaterias(){
-        $query = $_GET['query'];
-        $materias = $this->materiaModel->obtenerMateriasLike($query);
-        $datos = array();
-        foreach($materias as $materia){
-            array_push($datos,$materia);
         }
-        echo json_encode($datos);
+
     }
 }
 ?>

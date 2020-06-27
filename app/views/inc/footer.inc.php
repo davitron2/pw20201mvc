@@ -9,6 +9,7 @@
         $('[data-toggle="tooltip"]').tooltip()
     });
 </script>
+    <script src="<?php echo RUTA_URL;?>/js/moment.min.js"></script>
     <script src="<?php echo RUTA_URL;?>/js/navbars.js"></script>
 
 </body>

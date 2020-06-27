@@ -11,7 +11,12 @@ class Aula{
         $resultados=$this->db->query("SELECT * FROM aula");
         return $resultados;
     }
-
+    public function obtenerAulasLike($like){
+        $bind = array($like);
+        $sql = "SELECT * FROM aula WHERE nombre LIKE CONCAT('%',?,'%')";
+        $resultados=$this->db->query($sql,$bind);
+        return $resultados;
+    }
     public function agregarAula($datos){
         $bind=array( 
                     $datos['nombre'],  
