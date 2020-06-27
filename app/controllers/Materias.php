@@ -85,6 +85,15 @@ class Materias extends Controller{
             $this->view('pages/materias/borrar',$datos);
     }
 
+    public function obtenerMateriasLike(){
+        $query = $_GET['query'];
+        $materias = $this->materiaModel->obtenerMateriasLike($query);
+        $datos = array();
+        foreach($materias as $materia){
+            array_push($datos,$materia);
+        }
+        echo json_encode($datos);
+    }
 
 
 

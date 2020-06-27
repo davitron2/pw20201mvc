@@ -27,7 +27,7 @@
                     <a class="nav-link" href="<?php echo RUTA_URL ?>/carreras">Carreras</a>
                 </li>
                 <li id="nav-item-8" class="nav-item">
-                    <a class="nav-link" href="#">Grupos</a>
+                    <a class="nav-link" href="<?php echo RUTA_URL ?>/grupos">Grupos</a>
                 </li>
                 <li id="nav-item-9" class="nav-item">
                     <a class="nav-link" href="#">Cambio de NIP</a>

@@ -75,45 +75,22 @@ class Personales extends Controller{
             ];
             $this->view('pages/personal/editar',$datos);
         }
-
     }
 
-
-
-
 public function buscar(){
-
     if($_SERVER['REQUEST_METHOD']=='GET'){
         $datos = [
             'buscado' => trim($_GET['inputBuscador']),
-        
             'opcion' => trim($_GET['selectBuscador']),
-        
         ];
-
         $Personal=$this->personalModel->buscarPersonal($datos);
-
-
         $datos = [
-            
             'Personal'=>$Personal,
              'tipoVista'=>1
         ];
         $this->view('pages/personal/personal',$datos);
-
     } 
-
-
-
-
 }
-
-
-
-
-
-
-
     public function borrar($id){
         $personal=$this->personalModel->obtenerPersonalId($id);
 
@@ -124,12 +101,8 @@ public function buscar(){
             'apellidoP' => $personal['apellidoP'],
             'apellidoM' => $personal['apellidoM'],
             'contrasena' => $personal['contrasena'],
-            'tipoUsuario' => $personal['tipoUsuario'],
-         
-            
-            
+            'tipoUsuario' => $personal['tipoUsuario']  
         ];
-
             if($_SERVER['REQUEST_METHOD']=='POST'){
                 if($this->personalModel->borrarPersonal($id)){
                     redireccionar('/personales');
@@ -140,11 +113,15 @@ public function buscar(){
             $this->view('pages/personal/borrar',$datos);
     }
 
-
-
-
-  
-
+    public function obtenerProfesoresLike(){
+        $query = $_GET['query'];
+        $profesores = $this->personalModel->obtenerProfesoresLike($query);
+        $datos = array();
+        foreach($profesores as $profesor){
+            array_push($datos,$profesor);
+        }
+        echo json_encode($datos);
+    }
 
 }
 ?>

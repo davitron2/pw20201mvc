@@ -77,5 +77,14 @@ class Aulas extends Controller{
             $this->view('pages/aulas/borrar',$datos);
     }
 
+    public function obtenerAulasLike(){
+        $query = $_GET['query'];
+        $aulas = $this->aulaModel->obtenerAulasLike($query);
+        $datos = array();
+        foreach($aulas as $aula){
+            array_push($datos,$aula);
+        }
+        echo json_encode($datos);
+    }
 }
 ?>

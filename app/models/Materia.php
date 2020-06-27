@@ -31,6 +31,14 @@ class Materia{
         $renglon=$this->db->queryRenglon($sql,$bind);
         return $renglon;
     }
+
+    public function obtenerMateriasLike($like){
+        $bind=array($like);
+        $sql="SELECT * FROM materia WHERE nombre LIKE CONCAT('%',?,'%');";
+        $resultado=$this->db->query($sql,$bind);
+        return $resultado;
+    }
+
     public function actualizarMateria($datos){
         $bind=array( $datos['nombre'],
                     $datos['creditos'],  

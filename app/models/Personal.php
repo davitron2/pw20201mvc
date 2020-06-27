@@ -62,6 +62,18 @@ class Personal{
         $renglon=$this->db->queryRenglon($sql,$bind);
         return $renglon;
     }
+
+    public function obtenerProfesoresLike($like){
+        $bind=array($like,$like,$like);
+        $sql="SELECT id,nombre,apellidoP,apellidoM FROM personal 
+            WHERE (nombre LIKE CONCAT('%',?,'%') 
+            OR apellidoP LIKE CONCAT('%',?,'%')
+            OR apellidoM LIKE CONCAT('%',?,'%'))
+            AND tipoUsuario = 2";
+        $resultado=$this->db->query($sql,$bind);
+        return $resultado;
+    }
+
     public function actualizarPersonal($datos){
         $bind=array( $datos['usuario'],
                     $datos['nombre'],  
