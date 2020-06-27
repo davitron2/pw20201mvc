@@ -3,7 +3,7 @@
 class  Grupos extends Controller{
     public function __construct(){
         $this->grupoModel=$this->model('Grupo');
-      
+        $this->materiaModel=$this->model('Materia');
     }
     public function index(){
         $Grupos=$this->grupoModel->obtenerGrupos();
@@ -84,6 +84,16 @@ class  Grupos extends Controller{
                 }
             }
             $this->view('pages/grupos/borrar',$datos);
+    }
+
+    public function obtenerMaterias(){
+        $query = $_GET['query'];
+        $materias = $this->materiaModel->obtenerMateriasLike($query);
+        $datos = array();
+        foreach($materias as $materia){
+            array_push($datos,$materia);
+        }
+        echo json_encode($datos);
     }
 }
 ?>
