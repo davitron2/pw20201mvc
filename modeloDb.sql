@@ -26,6 +26,8 @@ CREATE TABLE IF NOT EXISTS `pw2020`.`alumno` (
   `apellidoP` VARCHAR(50) NOT NULL,
   `apellidoM` VARCHAR(50) NOT NULL,
   `NIP` VARCHAR(100) NOT NULL,
+`semestre` INT(50) NOT NULL,
+`idReticula` INT(50) NOT NULL,
   PRIMARY KEY (`noControl`))
 ENGINE = MyISAM
 DEFAULT CHARACTER SET = utf8
