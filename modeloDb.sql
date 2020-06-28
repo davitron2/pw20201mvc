@@ -21,14 +21,15 @@ USE `pw2020` ;
 -- Table `pw2020`.`alumno`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `pw2020`.`alumno` (
-  `noControl` INT(50) NOT NULL,
+  `id` int(4) zerofill auto_increment,
+  `noControl` VARCHAR(50)  NULL,
   `nombres` VARCHAR(50) NOT NULL,
   `apellidoP` VARCHAR(50) NOT NULL,
   `apellidoM` VARCHAR(50) NOT NULL,
   `NIP` VARCHAR(100) NOT NULL,
-  `semestre` INT(50) NOT NULL,
-  `idReticula` INT(50) NOT NULL,
-  PRIMARY KEY (`noControl`))
+`semestre` INT(50) NOT NULL,
+`idReticula` INT(50) NOT NULL,
+  PRIMARY KEY (`id`))
 ENGINE = MyISAM
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish_ci;

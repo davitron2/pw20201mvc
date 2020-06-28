@@ -7,6 +7,19 @@ class ReticulaMateria{
         $this->db=new Base;
     }
 
+
+
+    public function obtenerMateriasNoEnReticula($id){
+        $bind=array($id);
+        $sql="SELECT * from materia where materia.id 
+        NOT IN (SELECT reticula_materia.idMateria 
+        FROM reticula_materia INNER JOIN materia ON reticula_materia.idMateria = materia.id 
+        WHERE idReticula = ?)";
+        $resultados=$this->db->query($sql,$bind);
+        return $resultados;
+    }
+
+
     public function obtenerReticulaMaterias($id){
         $bind=array($id);
         $sql="SELECT reticula_materia.id, reticula_materia.idMateria, materia.nombre, materia.creditos, materia.unidades 

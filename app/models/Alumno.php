@@ -25,7 +25,8 @@ class Alumno{
                     $datos['idReticula'],
                    
         );
-    $sql="INSERT INTO Alumno  SELECT CONCAT( YEAR(NOW()),COUNT(noControl)+1) , ?,?,?,?,?,?    FROM Alumno";
+    $sql="INSERT INTO Alumno (`noControl`,`nombres`,`apellidoP`,`apellidoM`,`NIP`,`semestre`,`idReticula`)
+    VALUES ('',?,?,?,?,?,?)";
     $resultado=$this->db->query($sql,$bind);
     return(is_array($resultado))?true:false;
     }
@@ -36,6 +37,27 @@ class Alumno{
         $renglon=$this->db->queryRenglon($sql,$bind);
         return $renglon;
     }
+
+
+    public function obtenerUltimoAlumno($datos){
+        $bind=array($datos['noControl']);
+        $sql="SELECT * FROM Alumno WHERE noControl=? and id = (select  max(id) from alumno)    ";
+        $renglon=$this->db->queryRenglon($sql,$bind);
+        return $renglon;
+    }
+
+    public function actualizarNoControl($datos){
+        $bind=array( $datos['id']
+                   
+        );
+        $sql="UPDATE alumno SET noControl= CONCAT(  (SELECT DATE_FORMAT(now(), '%y')), id  )  WHERE ID =?";
+        $resultado=$this->db->query($sql,$bind);
+        return(is_array($resultado))?true:false;
+    }
+
+
+
+
     public function actualizarAlumno($datos){
         $bind=array( $datos['nombres'],
                     $datos['apellidoP'],  
