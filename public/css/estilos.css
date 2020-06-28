@@ -37,3 +37,28 @@ fieldset.form-group {
     color: #727272;
 }
 
+h5.titulo-pagina {
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+    padding: 3rem 0;
+}
+
+table.tabla-horario thead,
+table.tabla-info-alumno thead,
+table.tabla-parciales thead {
+    background-color: #000080;
+}
+
+table.tabla-info-alumno tbody td,
+table.tabla-parciales tbody td {
+    text-align: center;
+}
+
+table.tabla-horario thead th,
+table.tabla-info-alumno thead th,
+table.tabla-parciales thead th {
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+}
