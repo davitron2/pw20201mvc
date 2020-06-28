@@ -20,11 +20,22 @@ class Materias extends Controller{
                 'creditos' => trim($_POST['inputCreditos']),
                 'unidades' => trim($_POST['inputUnidades'])
             ];
-            if($this->materiaModel->agregarMateria($datos)){
-                redireccionar('/materias');
-            } else {
-             
+
+            if($this->materiaModel->validarNombreMateria($datos)){
+                $datos = [
+                    'nombre' => '',   
+                ];
+                $this->view('pages/materias/agregar',$datos);          
+                echo "<script>showErrorModal('Ya existe un materia con ese nombre') </script>  ";
+
+            }else {
+                if($this->materiaModel->agregarMateria($datos)){
+                    redireccionar('/materias');
+                } else {
+                    
+                }
             }
+
         } else {
             $datos = [
                 'nombre' => '',

@@ -103,6 +103,25 @@ class Grupo{
         return $resultado;
     }
 
+
+
+    public function validarNombreMateriaGrupo($datos){
+        $bind=array( 
+            $datos['idMateria'],  
+            $datos['grupo'],
+        
+       );
+        $sql = "SELECT COUNT(*) FROM grupo
+            WHERE   idMateria=?   and grupo=?               ";
+        $resultado=$this->db->queryOne($sql,$bind);
+        return $resultado;
+    }
+
+
+
+
+
+
     public function validarHorarioProfe($datos){
         $bind = array(
             $datos['horaFin'], 

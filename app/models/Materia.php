@@ -12,6 +12,18 @@ class Materia{
         return $resultados;
     }
 
+    public function validarNombreMateria($datos){
+        $bind=array( 
+            $datos['nombre'],  
+            
+        
+       );
+        $sql = "SELECT COUNT(*) FROM materia
+            WHERE   nombre=?              ";
+        $resultado=$this->db->queryOne($sql,$bind);
+        return $resultado;
+    }
+
     public function agregarMateria($datos){
         $bind=array( 
                     $datos['nombre'],  

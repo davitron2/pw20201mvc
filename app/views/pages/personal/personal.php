@@ -11,6 +11,11 @@ include RUTA_APP . '/views/inc/header.inc.php'; ?>
             <a href="<?php echo RUTA_URL; ?>/personales/agregar" class="text-secondary">Nuevo <i class="fas fa-file-alt"></i></a>
         </div>
     </div>
+    <div class="row">
+        <div class="col-12 text-center">
+            <h5>Personal</h5>
+        </div>
+    </div>
     <div class="row mt-4 justify-content-center">
         <div class="col-lg-10">
 
@@ -38,8 +43,6 @@ include RUTA_APP . '/views/inc/header.inc.php'; ?>
     <div class="row justify-content-center">
         <div class="col-lg-10">
 
-     
-
         <?php if(isset($datos['tipoVista'])   ) { ///////////////////////////////?>
             <h4>Resultados de la busqueda</h4>
             <div class="col">
@@ -49,9 +52,6 @@ include RUTA_APP . '/views/inc/header.inc.php'; ?>
              <?php
                  } 
              ////////////////////////////////////////?>
-
-  
-
 
             <table class="table table-striped">
             
@@ -74,10 +74,15 @@ include RUTA_APP . '/views/inc/header.inc.php'; ?>
                     <td><?php echo $personal['apellidoP']; ?></td>
                     <td><?php echo $personal['apellidoM']; ?></td>
                     <td><?php echo $personal['usuario']; ?></td>
-                    <td><?php echo $personal['tipoUsuario']; ?></td>
-                 
-            
-                        <td>
+                    <td>
+                    <?php
+                    if($personal['tipoUsuario'] ==1   ){
+                        echo 'Administrativo'; 
+                    }else {
+                        echo 'Docente'; 
+                    } ?>
+                    </td>
+                    <td>
                             <a    href="<?php echo RUTA_URL;?>/personales/editar/<?php echo $personal['id']; ?>"   class="btn btn-sm btn-warning"><i class="text-white fas fa-edit"></i></a>
                             <a    href="<?php echo RUTA_URL;?>/personales/borrar/<?php echo $personal['id']; ?>"      class="btn btn-sm btn-danger"><i class="text-white fas fa-trash"></i></a>
                         </td>

@@ -20,12 +20,21 @@ class Aulas extends Controller{
                 'nombre' => trim($_POST['inputNombre']),
                 
             ];
-            if($this->aulaModel->agregarAula($datos)){
-                redireccionar('/aulas');
-            } else {
-                
-            }
 
+            if($this->aulaModel->validarNombreAula($datos)){
+
+                $datos = [
+                    'nombre' => '',   
+                ];
+                $this->view('pages/aulas/agregar',$datos);          
+                echo "<script>showErrorModal('Ya existe un aula con ese nombre') </script>  ";
+            }else {
+                if($this->aulaModel->agregarAula($datos)){
+                    redireccionar('/aulas');
+                } else {
+                    
+                }
+            }
         } else {
             $datos = [
                 'nombre' => '',   
