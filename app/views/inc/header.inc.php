@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="<?php echo RUTA_URL ?>/css/custom.css">
     <link rel="stylesheet" href="<?php echo RUTA_URL ?>/css/navbars.css">
 
-    <script src="<?php echo RUTA_URL;?>/js/jquery-3.4.1.min.js" type="text/javascript"> defer="defer"</script>
+    <script src="<?php echo RUTA_URL;?>/js/jquery-3.4.1.min.js" type="text/javascript"></script>
 <!--**************************************************************-->
 
     <title><?php echo NOMBRE_SITIO;?></title>

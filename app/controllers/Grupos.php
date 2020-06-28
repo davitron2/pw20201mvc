@@ -129,5 +129,14 @@ class  Grupos extends Controller{
         }
 
     }
+    public function obtenerGruposMateria(){
+        $idMateria = $_GET['idMateria'];
+        $grupos = $this->grupoModel->obtenerGruposMateria($idMateria);
+        $datos = array();
+        foreach($grupos as $grupo){
+            array_push($datos,$grupo);
+        }
+        echo json_encode($datos);
+    }
 }
 ?>
