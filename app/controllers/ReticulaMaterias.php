@@ -25,7 +25,7 @@ class ReticulaMaterias extends Controller{
             }
 
         } else {
-            $materias=$this->materiasModel->obtenerMaterias();
+            $materias=$this->reticulaMatariaModel->obtenerMateriasNoEnReticula($reticula);
             $datos = [
                 'materias' => $materias,
                 'reticula' => $reticula

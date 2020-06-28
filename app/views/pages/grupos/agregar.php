@@ -67,7 +67,7 @@ include RUTA_APP . '/views/inc/header.inc.php'; ?>
 <script>
     function validateDisabledFields(){
         if(!$('#inputIdMateria').val() || !$('#inputIdProfesor').val()){
-            alert('algo mal:C')
+           showErrorModal('Seleccione una Materia y Profesor')
             return false;
         }
     }

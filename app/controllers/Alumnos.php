@@ -28,11 +28,23 @@ class Alumnos extends Controller{
                 
             ];
             if($this->alumnoModel->agregarAlumno($datos)){
-                redireccionar('/alumnos');
-            } else {
-             
-            }
 
+                $datos = [
+                    'noControl' => ''
+
+                ];
+                $alumno=$this->alumnoModel->obtenerUltimoAlumno($datos);               
+                $datos = [
+                    'id' => $alumno['id'],
+
+                ];
+                if($this->alumnoModel->actualizarNoControl($datos)){
+                    redireccionar('/alumnos');
+                } else { 
+                }
+
+            } else {
+            }
         } else {
             $Reticulas=$this->reticulaModel->obtenerReticulasNombre();
             $datos = [
@@ -41,8 +53,7 @@ class Alumnos extends Controller{
                 'apellidoM' => '',
                 'NIP' => '',
                 'Reticulas'=>$Reticulas
-                
-                
+                   
             ];
             $this->view('pages/alumnos/agregar',$datos);
         }

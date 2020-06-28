@@ -117,11 +117,11 @@ include RUTA_APP . '/views/inc/header.inc.php'; ?>
         var momentoInicio = moment(horaInicio,formato);
         var momentoFin = moment(horaFin,formato);
         if(!momentoInicio.isBefore(momentoFin)){
-            alert('ño');
+            showErrorModal('La hora de inicio debe ser anterior a la hora de fin');
             return false
         }
         if(!$('#inputIdAula').val()){
-            alert('ño');
+            showErrorModal('Seleccione un Aula');
             return false
         }
     }

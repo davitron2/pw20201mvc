@@ -7,6 +7,11 @@ include RUTA_APP . '/views/inc/header.inc.php'; ?>
             <a href="<?php echo RUTA_URL; ?>/aulas/agregar" class="text-secondary">Nuevo <i class="fas fa-file-alt"></i></a>
         </div>
     </div>
+    <div class="row">
+        <div class="col-12 text-center">
+            <h5>Aulas</h5>
+        </div>
+    </div>
     <div class="row mt-4 justify-content-center">
         <div class="col-lg-10">
             <div class="row form-group">
