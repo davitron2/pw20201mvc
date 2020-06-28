@@ -9,10 +9,10 @@
                     <a class="nav-link" href="<?php echo RUTA_URL ?>/logins/logins">Inicio</a>
                 </li>
                 <li id="nav-item-2" class="nav-item">
-                    <a class="nav-link" href="#">Horarios</a>
+                    <a class="nav-link" href="<?php echo RUTA_URL ?>/horarios/docente">Horario</a>
                 </li>
                 <li id="nav-item-3" class="nav-item">
-                    <a class="nav-link" href="#">Grupos</a>
+                    <a class="nav-link" href="<?php echo RUTA_URL ?>/grupos/docente">Grupos</a>
                 </li>
                 <li id="nav-item-4" class="nav-item">
                     <a class="nav-link" href="#">Cambio de NIP</a>

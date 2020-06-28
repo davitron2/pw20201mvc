@@ -4,46 +4,6 @@ ini_set('display_errors',0);
 session_start();
 include RUTA_APP . '/views/inc/header.inc.php';
 ?>
-<br>
-    <div class="container">
-        <?php if(isset($_SESSION['usuario'])   ) { ?>
-         
-
-
-            <h3><?php echo "bienvenido: " . $_SESSION['usuario']['usuario'] ?></h3>
-    
-    <p>Programación Web</p>
-
-
-
-
-
-
-
-
-                <?php
-                    } else {
-                ?>
-
-
-
-
-<?php if(isset($_SESSION['alumno'])   ) { ?>
-
-
-
-    <h3><?php echo "bienvenido: " . $_SESSION['alumno']['noControl'] ?></h3>
-    
-    <p>Programación Web</p>
-
-
-
-
-    <?php
-                    } else {
-                ?>
-
-
     <div class="container container-main-cards-login">    
         <div class="card-deck container-cards-login ">
             <div class="card card-wrapper">
@@ -81,25 +41,6 @@ include RUTA_APP . '/views/inc/header.inc.php';
                 </div>
             </div>
         </div>
-    </div>
-
-
-
-
-
-
-
-
-
-
-                    <?php } ?>
-
-                    <?php } ?>
-
-
-                    
-    
-
     </div>
 <?php
 include RUTA_APP . '/views/inc/footer.inc.php'

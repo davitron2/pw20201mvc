@@ -50,6 +50,13 @@ class Horario{
         $resultado=$this->db->query($sql,$bind);
         return(is_array($resultado))?true:false;
     }
+
+    public function obtenerHorarioDeDocente($idDocente) {
+        $bind = array($idDocente);
+        $sql = "SELECT m.nombre As 'Materia', g.grupo As 'Grupo', MAX(IF(h.diaSemana = 1, CONCAT(h.horaInicio, ' - ', h.horaFin, ' ', a.nombre), '-')) As 'Lunes', MAX(IF(h.diaSemana = 2, CONCAT(h.horaInicio, ' - ', h.horaFin, ' ', a.nombre), '-')) As 'Martes', MAX(IF(h.diaSemana = 3, CONCAT(h.horaInicio, ' - ', h.horaFin, ' ', a.nombre), '-')) As 'Miercoles', MAX(IF(h.diaSemana = 4, CONCAT(h.horaInicio, ' - ', h.horaFin, ' ', a.nombre), '-')) As 'Jueves', MAX(IF(h.diaSemana = 5, CONCAT(h.horaInicio, ' - ', h.horaFin, ' ', a.nombre), '-')) As 'Viernes', MAX(IF(h.diaSemana = 6, CONCAT(h.horaInicio, ' - ', h.horaFin, ' ', a.nombre), '-')) As 'Sabado' FROM grupo g LEFT JOIN horario h ON g.id = h.idGrupo JOIN materia m ON g.idMateria = m.id JOIN aula a ON h.idAula = a.id WHERE g.idProfesor = ? GROUP BY m.nombre, g.grupo ";
+        $resultado = $this->db->query($sql, $bind);
+        return $resultado;
+    }
 }
 
 ?>

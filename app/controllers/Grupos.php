@@ -162,6 +162,48 @@ class  Grupos extends Controller{
         }
 
     }
+
+    public function docente() {
+        session_start();
+        if(isset($_SESSION['usuario']) && $_SESSION['usuario']['tipoUsuario'] == 2) {
+            $grupos=$this->grupoModel->obtenerGruposDeDocente($_SESSION['usuario']['id']);
+
+            $datos = [
+                'grupos' => $grupos
+            ];
+
+            $this->view('pages/docentes/grupos', $datos);
+        } else if($_SESSION['usuario']['tipoUsuario'] == 1) {
+            $this->view('pages/dashboard', null);
+            echo "<script type=".'text/javascript'.">showErrorModal('No tienes permisos para esa opción.');</script>";
+        } else {
+            session_unset();
+            session_destroy();
+            $this->view('pages/logins/logins', null);
+            echo "<script type=".'text/javascript'.">showErrorModal('Su sesión a caducado.');</script>";
+        }
+    }
+
+    public function lista($idGrupo) {
+        session_start();
+        if(isset($_SESSION['usuario']) && $_SESSION['usuario']['tipoUsuario'] == 2) {
+            $alumnos=$this->grupoModel->
+
+            $datos = [
+                'alumnos' => $alumnos
+            ];
+
+            $this->view('pages/docentes/grupo', $datos);
+        } else if($_SESSION['usuario']['tipoUsuario'] == 1) {
+            $this->view('pages/dashboard', null);
+            echo "<script type=".'text/javascript'.">showErrorModal('No tienes permisos para esa opción.');</script>";
+        } else {
+            session_unset();
+            session_destroy();
+            $this->view('pages/logins/logins', null);
+            echo "<script type=".'text/javascript'.">showErrorModal('Su sesión a caducado.');</script>";
+        }
+
     public function obtenerGruposMateria(){
         $idMateria = $_GET['idMateria'];
         $grupos = $this->grupoModel->obtenerGruposMateria($idMateria);
