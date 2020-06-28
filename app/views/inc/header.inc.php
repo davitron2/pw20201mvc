@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="<?php echo RUTA_URL ?>/css/custom.css">
     <link rel="stylesheet" href="<?php echo RUTA_URL ?>/css/navbars.css">
 
-    <script src="<?php echo RUTA_URL;?>/js/jquery-3.4.1.min.js" type="text/javascript"> defer="defer"</script>
+    <script src="<?php echo RUTA_URL;?>/js/jquery-3.4.1.min.js" type="text/javascript"></script>
 <!--**************************************************************-->
 
     <title><?php echo NOMBRE_SITIO;?></title>
@@ -39,7 +39,7 @@
         ?>
     </div>
     <div id="errorModal" class="modal" tabindex="-1" role="dialog">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content " >
                 <div class="modal-header bg-danger">
                     <h5 class="modal-title" style="color: white;">¡Error!</h5>

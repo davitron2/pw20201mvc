@@ -11,6 +11,22 @@ class Aula{
         $resultados=$this->db->query("SELECT * FROM aula");
         return $resultados;
     }
+
+
+    public function validarNombreAula($datos){
+        $bind=array( 
+            $datos['nombre'],  
+            
+        
+       );
+        $sql = "SELECT COUNT(*) FROM aula
+            WHERE   nombre=?              ";
+        $resultado=$this->db->queryOne($sql,$bind);
+        return $resultado;
+    }
+
+
+
     public function obtenerAulasLike($like){
         $bind = array($like);
         $sql = "SELECT * FROM aula WHERE nombre LIKE CONCAT('%',?,'%')";

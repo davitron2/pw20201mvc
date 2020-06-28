@@ -18,7 +18,7 @@
                     <a class="nav-link" href="#">Boleta</a>
                 </li>
                 <li id="nav-item-5" class="nav-item">
-                    <a class="nav-link" href="#">Inscripci&oacute;n</a>
+                    <a class="nav-link" href="<?php echo RUTA_URL ?>/inscripciones">Inscripci&oacute;n</a>
                 </li>
                 <li id="nav-item-6" class="nav-item">
                     <a class="nav-link" href="#">Cambio de NIP</a>

@@ -12,6 +12,20 @@ class Carrera{
         return $resultados;
     }
 
+    public function validarNombreCarrera($datos){
+        $bind=array( 
+            $datos['nombre'],  
+            
+        
+       );
+        $sql = "SELECT COUNT(*) FROM carrera
+            WHERE   nombre=?              ";
+        $resultado=$this->db->queryOne($sql,$bind);
+        return $resultado;
+    }
+
+
+
     public function agregarCarrera($datos){
         $bind=array( 
         

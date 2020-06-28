@@ -31,14 +31,30 @@ class  Grupos extends Controller{
                 'grupo' => trim($_POST['inputGrupo']),
                 'limite' => trim($_POST['inputLimite'])
             ];
-            print_r($datos);
-            if($this->grupoModel->agregarGrupo($datos)){
-                redireccionar('/grupos');
-            } else {
-             
-            }
 
-        } else {
+
+            if($this->grupoModel->validarNombreMateriaGrupo($datos)){
+
+                $datos = [
+                    'idMateria' => '',
+                    'idProfesor' => '',
+                    'grupo' => '',
+                    'limite' => ''
+                ];
+                $this->view('pages/grupos/agregar',$datos);          
+                echo "<script>showErrorModal('Ya existe un grupo con esa materia y nombre') </script>  ";
+
+            }else{
+                print_r($datos);
+                if($this->grupoModel->agregarGrupo($datos)){
+                    redireccionar('/grupos');
+                } else {
+                 
+                }
+            }
+        } 
+        
+        else {
             $datos = [
                 'idMateria' => '',
                 'idProfesor' => '',
@@ -61,9 +77,26 @@ class  Grupos extends Controller{
             ];
             if(empty($datos['id'])){
                 if($this->grupoModel->validarHorarioAula($datos)){
-                    //el aula está ocupada
+                  $Horarios = $this ->grupoModel->obtenerHorariosGrupo($idGrupo);
+                    $datos = [
+                        'idGrupo'=>$idGrupo,
+                        'Horarios'=>$Horarios
+                    ];
+                    
+                      $this->view('pages/grupos/horarios',$datos);
+            echo "<script>showErrorModal('el aula esta ocupada en esa hora y dia') </script>  ";
+                    
                 }else if($this->grupoModel->validarHorarioProfe($datos)){
                     //el profesor ya tiene una clase registrada a esa hora
+                    $Horarios = $this ->grupoModel->obtenerHorariosGrupo($idGrupo);
+                    $datos = [
+                        'idGrupo'=>$idGrupo,
+                        'Horarios'=>$Horarios
+                    ];
+                    
+                      $this->view('pages/grupos/horarios',$datos);
+                        echo "<script>showErrorModal('el profesor ya tiene una clase registrada a esa hora y dia') </script>  ";
+                    
                 }else{
                     if($this->grupoModel->agregarHorario($datos)){
                         redireccionar('/grupos/horarios/'.$idGrupo);
@@ -170,6 +203,15 @@ class  Grupos extends Controller{
             $this->view('pages/logins/logins', null);
             echo "<script type=".'text/javascript'.">showErrorModal('Su sesión a caducado.');</script>";
         }
+
+    public function obtenerGruposMateria(){
+        $idMateria = $_GET['idMateria'];
+        $grupos = $this->grupoModel->obtenerGruposMateria($idMateria);
+        $datos = array();
+        foreach($grupos as $grupo){
+            array_push($datos,$grupo);
+        }
+        echo json_encode($datos);
     }
 }
 ?>

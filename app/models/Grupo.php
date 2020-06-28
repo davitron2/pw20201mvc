@@ -103,6 +103,25 @@ class Grupo{
         return $resultado;
     }
 
+
+
+    public function validarNombreMateriaGrupo($datos){
+        $bind=array( 
+            $datos['idMateria'],  
+            $datos['grupo'],
+        
+       );
+        $sql = "SELECT COUNT(*) FROM grupo
+            WHERE   idMateria=?   and grupo=?               ";
+        $resultado=$this->db->queryOne($sql,$bind);
+        return $resultado;
+    }
+
+
+
+
+
+
     public function validarHorarioProfe($datos){
         $bind = array(
             $datos['horaFin'], 
@@ -125,11 +144,48 @@ class Grupo{
         return(is_array($resultado))?true:false;
     }
 
+
     public function obtenerGruposDeDocente($idDocente) {
         $bind = array($idDocente);
         $sql = "SELECT g.id, m.nombre As Materia, g.grupo As Grupo FROM alumno_grupo ag JOIN alumno a On ag.idAlumno = a.noControl JOIN grupo g ON ag.idGrupo = g.id JOIN materia m ON g.idMateria = m.id WHERE g.idProfesor = ? GROUP BY m.nombre, g.grupo ";
         $resultado = $this->db->query($sql, $bind);
         return($resultado);
+    }
+  
+    public function obtenerGruposMateria($id){
+        $bind=array($id);
+        $sql = "SELECT grupo.id,
+                grupo.grupo,
+                personal.nombre,
+                personal.apellidoP,
+                personal.apellidoM,
+                IFNULL((select concat(DATE_FORMAT(h.horaInicio, '%H:%i'),'-',DATE_FORMAT(h.horaFin, '%H:%i'),' <br>',a.nombre)
+                    from horario h inner join aula a on h.idAula = a.id 
+                    where h.idGrupo=grupo.id and h.diaSemana =1),'-') as 'Lunes',
+                IFNULL((select concat(DATE_FORMAT(h.horaInicio, '%H:%i'),'-',DATE_FORMAT(h.horaFin, '%H:%i'),' <br>',a.nombre)
+                    from horario h inner join aula a on h.idAula = a.id 
+                    where h.idGrupo=grupo.id and h.diaSemana =2),'-') as 'Martes',
+                IFNULL((select concat(DATE_FORMAT(h.horaInicio, '%H:%i'),'-',DATE_FORMAT(h.horaFin, '%H:%i'),' <br>',a.nombre)
+                    from horario h inner join aula a on h.idAula = a.id 
+                    where h.idGrupo=grupo.id and h.diaSemana =3),'-') as 'Miercoles',
+                IFNULL((select concat(DATE_FORMAT(h.horaInicio, '%H:%i'),'-',DATE_FORMAT(h.horaFin, '%H:%i'),' <br>',a.nombre)
+                    from horario h inner join aula a on h.idAula = a.id 
+                    where h.idGrupo=grupo.id and h.diaSemana =4),'-') as 'Jueves',
+                IFNULL((select concat(DATE_FORMAT(h.horaInicio, '%H:%i'),'-',DATE_FORMAT(h.horaFin, '%H:%i'),' <br>',a.nombre)
+                    from horario h inner join aula a on h.idAula = a.id 
+                    where h.idGrupo=grupo.id and h.diaSemana =5),'-') as 'Viernes',
+                IFNULL((select concat(DATE_FORMAT(h.horaInicio, '%H:%i'),'-',DATE_FORMAT(h.horaFin, '%H:%i'),' <br>',a.nombre)
+                    from horario h inner join aula a on h.idAula = a.id 
+                    where h.idGrupo=grupo.id and h.diaSemana =6),'-') as 'Sabado'
+            FROM grupo
+            INNER JOIN horario ON grupo.id = horario.idGrupo
+            INNER JOIN personal ON grupo.idProfesor = personal.id
+            INNER JOIN aula ON horario.idAula = aula.id
+            WHERE grupo.idMateria = ?
+            group by grupo.id";
+        
+        $resultados=$this->db->query($sql,$bind);
+        return $resultados;
     }
 
 }

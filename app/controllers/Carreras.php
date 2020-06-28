@@ -22,10 +22,20 @@ class Carreras extends Controller{
              
             
             ];
-            if($this->carreraModel->agregarCarrera($datos)){
-                redireccionar('/carreras');
-            } else {
-                //TODO tratar errores
+            if($this->carreraModel->validarNombreCarrera($datos)){
+
+
+                $datos = [
+                    'nombre' => '',   
+                ];
+                $this->view('pages/carreras/agregar',$datos);          
+                echo "<script>showErrorModal('Ya existe un carrera con ese nombre') </script>  "; 
+            }else {
+                if($this->carreraModel->agregarCarrera($datos)){
+                    redireccionar('/carreras');
+                } else {
+                    
+                }
             }
 
         } else {
@@ -41,10 +51,7 @@ class Carreras extends Controller{
         if($_SERVER['REQUEST_METHOD']=='POST'){
             $datos = [
                 'id' => $id,
-                'nombre' => trim($_POST['inputNombre']),
-             
-              
-                              
+                'nombre' => trim($_POST['inputNombre']),                
             ];
             if($this->carreraModel->actualizarCarrera($datos)){
                 redireccionar('/carreras');
@@ -59,10 +66,6 @@ class Carreras extends Controller{
                 'id' => $carrera['id'],
                 'nombre' => $carrera['nombre'],
               
-               
-             
-                
-                
             ];
             $this->view('pages/carreras/editar',$datos);
 
