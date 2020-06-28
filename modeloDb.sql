@@ -36,6 +36,21 @@ COLLATE = utf8_spanish_ci;
 
 
 -- -----------------------------------------------------
+-- Table `pw2020`.`alumno_grupo`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `pw2020`.`alumno_grupo` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `idAlumno` INT(11) NOT NULL,
+  `idGrupo` INT(11) NOT NULL,
+  `estado` INT(11) NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 56
+DEFAULT CHARACTER SET = utf8
+COLLATE = utf8_spanish_ci;
+
+
+-- -----------------------------------------------------
 -- Table `pw2020`.`aula`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `pw2020`.`aula` (
@@ -72,7 +87,7 @@ CREATE TABLE IF NOT EXISTS `pw2020`.`grupo` (
   `limite` INT(11) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 11
+AUTO_INCREMENT = 13
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish_ci;
 
@@ -89,7 +104,7 @@ CREATE TABLE IF NOT EXISTS `pw2020`.`horario` (
   `horaFin` TIME NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 8
+AUTO_INCREMENT = 14
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish_ci;
 
@@ -122,7 +137,7 @@ CREATE TABLE IF NOT EXISTS `pw2020`.`personal` (
   `tipoUsuario` VARCHAR(50) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = MyISAM
-AUTO_INCREMENT = 10
+AUTO_INCREMENT = 11
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish_ci;
 
@@ -151,7 +166,7 @@ CREATE TABLE IF NOT EXISTS `pw2020`.`reticula_materia` (
   `idMateria` INT(11) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 19
+AUTO_INCREMENT = 20
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish_ci;
 
