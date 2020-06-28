@@ -81,15 +81,11 @@ class AlumnoGrupo{
     }
 
     public function validarEmpalmes($datos){
-        $bind = array(
-            $datos['horaFin'], 
-            $datos['horaInicio'],
-            $datos['idAula'],
-            $datos['diaSemana'],
-        );
-        $sql = "SELECT COUNT(*) FROM horario
-            WHERE (horaInicio < ? AND horaFin > ?) AND
-                idAula = ? AND diaSemana = ?;";
+        $bind=array($datos['idAlumno'],$datos['idGrupo'],$datos['idGrupo']);
+        $sql = "select ifnull(count(*),0) as 'conteo' from horario h 
+            where h.idGrupo in (select ag.idGrupo from alumno_grupo ag where ag.idAlumno = ?)
+            and h.horaInicio < (select h2.horaFin from horario h2 where h2.idGrupo  =  ? and h2.diaSemana = h.diaSemana limit 1)
+            and h.horaFin > (select h2.horaInicio from horario h2 where h2.idGrupo  =  ? and h2.diaSemana = h.diaSemana limit 1 )";
         $resultado=$this->db->queryOne($sql,$bind);
         return $resultado;
     }
