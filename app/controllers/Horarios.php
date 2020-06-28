@@ -133,9 +133,6 @@ class Horarios extends Controller{
     public function HorarioDocentePdf(){
         session_start();
         $horarios=$this->horarioModel->obtenerHorarioDeDocente($_SESSION['usuario']['id']);
-    
-      
-    
         foreach($horarios as $key=>$horario){
             $registros[]= [
                                   
@@ -148,8 +145,7 @@ class Horarios extends Controller{
                         'Sabado'=> $horario['Sabado']
                       
             ];
-                                
-                              
+                                        
     }
     $datos=['Horarios'=>$registros, 'Docente'=>"Docente: " . $_SESSION['usuario']['nombre'] . ' ' . $_SESSION['usuario']['apellidoP'] . ' ' . $_SESSION['usuario']['apellidoM']  ];
       $this->view('pages/docentes/HorarioImpresion',$datos);
