@@ -20,7 +20,7 @@
                 <tbody>
                     <?php foreach($datos['Materias'] as $materia): ?>
                         <tr>
-                        <td id="nombreMateria<?php echo $materia['id'];?>"><?php echo $materia['nombre']; ?></td>
+                        <td id="nombreMateria<?php echo $materia['idMateria'];?>"><?php echo $materia['nombre']; ?></td>
                         <td><?php echo $materia['creditos']; ?></td>
                             <td>
                                 <button id="<?php echo $materia['idMateria'];?>" class="btn btnMateria btn-primary text-white" data-toggle="modal" data-target="#modalSeleccionarGrupo">Ver grupos disponibles</button>
@@ -82,7 +82,6 @@
             var materia = $(td).text();
             $('#spanNombreMateria').text(materia);
             $('#hiddenIdMateria').val(id);
-            console.log($('#hiddenIdMateria').val());
         });
         $('.btnClase').click(function() { 
             var id = $(this).attr('id');

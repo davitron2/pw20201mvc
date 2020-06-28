@@ -35,10 +35,14 @@ class Inscripciones extends Controller{
             if($this->alumnoGrupoModel->validarExiste($datos)==0){
                 if($this->alumnoGrupoModel->validarLimiteGrupo($datos)){
                     if($this->alumnoGrupoModel->validarCreditos($datos)){
-                        if($this->alumnoGrupoModel->agregarAlumnoGrupo($datos)){
-                            echo 'success';
+                        if($this->alumnoGrupoModel->validarEmpalmes($datos)==0){
+                            if($this->alumnoGrupoModel->agregarAlumnoGrupo($datos)){
+                                echo 'success';
+                            }else{
+                                echo "showErrorModal('Error al elegir grupo');";
+                            }
                         }else{
-                            echo "showErrorModal('Error al elegir grupo');";
+                            echo "showErrorModal('Ya se tiene una clase registrada en ese horario');";
                         }
                     }else{
                         echo "showErrorModal('Máximo de créditos permitidos alcanzado');";
