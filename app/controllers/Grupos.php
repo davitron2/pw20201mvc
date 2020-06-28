@@ -203,7 +203,8 @@ class  Grupos extends Controller{
             $this->view('pages/logins/logins', null);
             echo "<script type=".'text/javascript'.">showErrorModal('Su sesión a caducado.');</script>";
         }
-
+    }
+    
     public function obtenerGruposMateria(){
         $idMateria = $_GET['idMateria'];
         $grupos = $this->grupoModel->obtenerGruposMateria($idMateria);
