@@ -1,6 +1,7 @@
 <?php
     include RUTA_APP . '/views/inc/header.inc.php'; ?>
 <h5 class="titulo-pagina">Horario</h5>
+<a href="<?php echo RUTA_URL;?>/horarios/HorarioDocentePdf" target="_blank" class="btn btn-info btn-sm" title="exportar a PDF" id="pdf"> <i class="fa fa-file-pdf"></i></a>
 <div class="container">
     <table class="table table-striped table-bordered tabla-horario">
         <thead>
@@ -33,3 +34,33 @@
     </table>
 </div>
 <?php include RUTA_APP . '/views/inc/footer.inc.php'; ?>
+
+
+<script>
+$(function  (){
+
+$('#pdf').on('click',function(){
+
+$.ajax({
+    type:'GET',
+    url:"<?php echo RUTA_URL;?>/horarios/HorarioDocentePdf",
+    dataType:'json',
+    success: function(respuesta){
+        if(respuesta.hecho){
+            alert('archivo creado con exito');
+        }
+    },
+    error: function(e){
+        console.log(e.responseText);
+    }
+
+});
+
+
+});
+
+
+
+});
+
+</script>

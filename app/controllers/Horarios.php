@@ -129,5 +129,33 @@ class Horarios extends Controller{
             echo "<script type=".'text/javascript'.">showErrorModal('Su sesión a caducado.');</script>";
         }
     }
+
+    public function HorarioDocentePdf(){
+        session_start();
+        $horarios=$this->horarioModel->obtenerHorarioDeDocente($_SESSION['usuario']['id']);
+    
+      
+    
+        foreach($horarios as $key=>$horario){
+            $registros[]= [
+                                  
+                        'Materia'=> $horario['Materia'] ,
+                        'Lunes'=> $horario['Lunes'] ,
+                        'Martes'=> $horario['Martes'] ,
+                        'Miercoles'=> $horario['Miercoles'],
+                        'Jueves'=> $horario['Jueves'],
+                        'Viernes'=> $horario['Viernes'],
+                        'Sabado'=> $horario['Sabado']
+                      
+            ];
+                                
+                              
+    }
+    $datos=['Horarios'=>$registros, 'Docente'=>"Docente: " . $_SESSION['usuario']['nombre'] . ' ' . $_SESSION['usuario']['apellidoP'] . ' ' . $_SESSION['usuario']['apellidoM']  ];
+      $this->view('pages/docentes/HorarioImpresion',$datos);
+    }
+
+
+
 }
 ?>

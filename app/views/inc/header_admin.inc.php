@@ -6,7 +6,7 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <li id="nav-item-1" class="nav-item">
-                    <a class="nav-link" href="<?php echo RUTA_URL ?>/logins/logins">Inicio</a>
+                    <a class="nav-link" href="<?php echo RUTA_URL ?>/dashboard">Inicio</a>
                 </li>
                 <li id="nav-item-2" class="nav-item">
                     <a class="nav-link" href="<?php echo RUTA_URL ?>/alumnos">Alumnos</a>
