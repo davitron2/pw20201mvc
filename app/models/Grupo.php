@@ -125,6 +125,13 @@ class Grupo{
         return(is_array($resultado))?true:false;
     }
 
+    public function obtenerGruposDeDocente($idDocente) {
+        $bind = array($idDocente);
+        $sql = "SELECT g.id, m.nombre As Materia, g.grupo As Grupo FROM alumno_grupo ag JOIN alumno a On ag.idAlumno = a.noControl JOIN grupo g ON ag.idGrupo = g.id JOIN materia m ON g.idMateria = m.id WHERE g.idProfesor = ? GROUP BY m.nombre, g.grupo ";
+        $resultado = $this->db->query($sql, $bind);
+        return($resultado);
+    }
+
 }
 
 ?>

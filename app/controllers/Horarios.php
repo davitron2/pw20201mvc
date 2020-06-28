@@ -13,7 +13,7 @@ class Horarios extends Controller{
             
             'Horarios'=>$Horarios
         ];
-        $this->view('pages/horarios/horarios',$datos);
+        $this->view('pages/docentes/horario',$datos);
     }
     public function agregar(){
         if($_SERVER['REQUEST_METHOD']=='POST'){
@@ -105,11 +105,29 @@ class Horarios extends Controller{
             $this->view('pages/horarios/borrar',$datos);
     }
 
+    public function alumno() {
 
+    }
 
+    public function docente() {
+        session_start();
+        if(isset($_SESSION['usuario']) && $_SESSION['usuario']['tipoUsuario'] == 2) {
+            $horario=$this->horarioModel->obtenerHorarioDeDocente($_SESSION['usuario']['id']);
+            
+            $datos = [
+                'horario' => $horario
+            ];
 
-  
-
-
+            $this->view('pages/docentes/horario', $datos);
+        } else if($_SESSION['usuario']['tipoUsuario'] == 1) {
+            $this->view('pages/dashboard', null);
+            echo "<script type=".'text/javascript'.">showErrorModal('No tienes permisos para esa opción.');</script>";
+        } else {
+            session_unset();
+            session_destroy();
+            $this->view('pages/logins/logins', null);
+            echo "<script type=".'text/javascript'.">showErrorModal('Su sesión a caducado.');</script>";
+        }
+    }
 }
 ?>
