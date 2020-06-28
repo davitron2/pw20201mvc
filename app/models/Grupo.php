@@ -188,6 +188,12 @@ class Grupo{
         return $resultados;
     }
 
+    public function obtenerListaDeAlumnos($idGrupo) {
+        $bind=array($idGrupo, $_SESSION['usuario']['id']);
+        $sql="SELECT a.noControl, CONCAT(a.apellidoP, ' ', a.apellidoM, ' ', a.nombres) As Alumno FROM alumno_grupo ag JOIN grupo g ON ag.idGrupo = g.id JOIN alumno a ON ag.idAlumno = a.noControl JOIN materia m ON g.idMateria = m.id WHERE g.id = ? AND g.idProfesor = ? ORDER BY a.apellidoP, a.apellidoM, a.nombres";
+        $resultado=$this->db->query($sql, $bind);
+        return $resultado;
+    }
 }
 
 ?>

@@ -187,7 +187,7 @@ class  Grupos extends Controller{
     public function lista($idGrupo) {
         session_start();
         if(isset($_SESSION['usuario']) && $_SESSION['usuario']['tipoUsuario'] == 2) {
-            $alumnos=$this->grupoModel->
+            $alumnos=$this->grupoModel->obtenerListaDeAlumnos($idGrupo);
 
             $datos = [
                 'alumnos' => $alumnos
@@ -204,7 +204,7 @@ class  Grupos extends Controller{
             echo "<script type=".'text/javascript'.">showErrorModal('Su sesión a caducado.');</script>";
         }
     }
-    
+
     public function obtenerGruposMateria(){
         $idMateria = $_GET['idMateria'];
         $grupos = $this->grupoModel->obtenerGruposMateria($idMateria);
