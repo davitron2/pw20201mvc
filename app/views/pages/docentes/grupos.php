@@ -17,9 +17,8 @@
                         <td><?php echo $grupo['Materia']; ?></td>
                         <td><?php echo $grupo['Grupo']; ?></td>
                         <td>
-                            <a href="<?php echo RUTA_URL;?>/grupos/lista/<?php echo $grupo['id']; ?>" class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="top" title="Lista">Lista</a>
-                            <a href="<?php echo RUTA_URL;?>/grupos/parcial/<?php echo $grupo['id']; ?>" class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="top" title="Parcial">Parcial</a>
-                            <a href="<?php echo RUTA_URL;?>/grupos/final/<?php echo $grupo['id']; ?>" class="btn btn-sm btn-danger" data-toggle="tooltip" data-placement="top" title="Parcial">Final</a>
+                            <a href="<?php echo RUTA_URL;?>/grupos/lista/<?php echo $grupo['id']; ?>" class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="top" title="Alumnos">Alumnos</a>
+                            <a href="<?php echo RUTA_URL;?>/grupos/calificaciones/<?php echo $grupo['id']; ?>" class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="top" title="Calificar">Calificar</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>

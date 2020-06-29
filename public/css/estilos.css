@@ -51,7 +51,7 @@ table.tabla-parciales thead {
 }
 
 table.tabla-info-alumno tbody td,
-table.tabla-parciales tbody td {
+table.tabla-parciales tbody tr td {
     text-align: center;
 }
 

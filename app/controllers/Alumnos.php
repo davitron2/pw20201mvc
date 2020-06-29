@@ -128,11 +128,25 @@ class Alumnos extends Controller{
             $this->view('pages/alumnos/borrar',$datos);
     }
 
+    public function calificar($idAlumno) {
+        if($_SERVER['REQUEST_METHOD']=='POST'){
+            $datos = [
+                'unidad1' => (int)trim($_POST['unidad1']),
+                'unidad2' => (int)trim($_POST['unidad2']),
+                'unidad3' => (int)trim($_POST['unidad3']),
+                'unidad4' => (int)trim($_POST['unidad4']),
+                'unidad5' => (int)trim($_POST['unidad5']),
+                'unidad6' => (int)trim($_POST['unidad6']),
+                'unidad7' => (int)trim($_POST['unidad7']),
+                'id' => $idAlumno
+            ];
+            if($this->alumnoModel->calificarAlumno($datos)){
+                redireccionar('/calificar/' . $idAlumno);
+            } else {
+               
+            }
 
-
-
-  
-
-
+        }
+    }
 }
 ?>
