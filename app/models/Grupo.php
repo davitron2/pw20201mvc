@@ -15,6 +15,46 @@ class Grupo{
         return $resultados;
     }
 
+
+    public function     buscarGrupo($datos){
+        $bind=array($datos['buscado']);
+        if ($datos['opcion'] == 1) {
+
+            $resultados=$this->db->query("SELECT grupo.id,materia.nombre as materia ,personal.nombre as profesor,personal.apellidoP,personal.apellidoM,grupo.grupo,grupo.limite
+            FROM grupo
+            INNER JOIN materia ON grupo.idMateria = materia.id
+            INNER JOIN personal ON grupo.idProfesor = personal.id where grupo.id=?",$bind);
+
+        }
+         elseif ($datos['opcion'] == 2) {
+            $resultados=$this->db->query("SELECT grupo.id,materia.nombre as materia ,personal.nombre as profesor,personal.apellidoP,personal.apellidoM,grupo.grupo,grupo.limite
+            FROM grupo
+            INNER JOIN materia ON grupo.idMateria = materia.id
+            INNER JOIN personal ON grupo.idProfesor = personal.id where materia.nombre=?",$bind);
+        } 
+        
+        elseif ($datos['opcion'] == 3) {
+            $resultados=$this->db->query("SELECT grupo.id,materia.nombre as materia ,personal.nombre as profesor,personal.apellidoP,personal.apellidoM,grupo.grupo,grupo.limite
+            FROM grupo
+            INNER JOIN materia ON grupo.idMateria = materia.id
+            INNER JOIN personal ON grupo.idProfesor = personal.id where personal.nombre=?",$bind);
+        }
+        elseif ($datos['opcion'] == 4) {
+            $resultados=$this->db->query("SELECT grupo.id,materia.nombre as materia ,personal.nombre as profesor,personal.apellidoP,personal.apellidoM,grupo.grupo,grupo.limite
+            FROM grupo
+            INNER JOIN materia ON grupo.idMateria = materia.id
+            INNER JOIN personal ON grupo.idProfesor = personal.id where grupo.grupo=?",$bind);
+        }
+        elseif ($datos['opcion'] == 5) {
+            $resultados=$this->db->query("SELECT grupo.id,materia.nombre as materia ,personal.nombre as profesor,personal.apellidoP,personal.apellidoM,grupo.grupo,grupo.limite
+            FROM grupo
+            INNER JOIN materia ON grupo.idMateria = materia.id
+            INNER JOIN personal ON grupo.idProfesor = personal.id where grupo.limite=?",$bind);
+        }
+       
+        return $resultados;
+    }
+
     public function agregarGrupo($datos){
         $bind=array( 
                     $datos['idMateria'],  

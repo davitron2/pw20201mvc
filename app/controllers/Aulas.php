@@ -68,6 +68,23 @@ class Aulas extends Controller{
 
     }
 
+    public function buscar(){
+        if($_SERVER['REQUEST_METHOD']=='GET'){
+            $datos = [
+                'buscado' => trim($_GET['inputBuscador']),
+                'opcion' => trim($_GET['selectBuscador']),
+            ];
+            $aulas=$this->aulaModel->buscarAula($datos);
+            $datos = [
+                'aulas'=>$aulas,
+                 'tipoVista'=>1
+            ];
+            $this->view('pages/aulas/aulas',$datos);
+        } 
+    }
+
+
+
     public function borrar($id){
         $aula=$this->aulaModel->obtenerAulaId($id);
 

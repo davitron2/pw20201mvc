@@ -16,6 +16,24 @@ class Alumnos extends Controller{
         ];
         $this->view('pages/alumnos/alumnos',$datos);
     }
+
+
+    public function buscar(){
+        if($_SERVER['REQUEST_METHOD']=='GET'){
+            $datos = [
+                'buscado' => trim($_GET['inputBuscador']),
+                'opcion' => trim($_GET['selectBuscador']),
+            ];
+            $Alumnos=$this->alumnoModel->buscarAlumno($datos);
+            $datos = [
+                'Alumnos'=>$Alumnos,
+                 'tipoVista'=>1
+            ];
+            $this->view('pages/alumnos/alumnos',$datos);
+        } 
+    }
+
+
     public function agregar(){
         if($_SERVER['REQUEST_METHOD']=='POST'){
             $datos = [

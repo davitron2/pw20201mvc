@@ -12,6 +12,22 @@ class Aula{
         return $resultados;
     }
 
+    public function    buscarAula($datos){
+        $bind=array($datos['buscado']);
+        if ($datos['opcion'] == 1) {
+
+            $resultados=$this->db->query("SELECT * FROM aula  where id=? ",$bind);
+
+        }
+
+         elseif ($datos['opcion'] == 2) {
+            $resultados=$this->db->query("SELECT * FROM aula where nombre=?",$bind);
+        } 
+        
+
+        return $resultados;
+    }
+
     public function validarNombreAula($datos){
         $bind=array( 
             $datos['nombre']

@@ -13,6 +13,27 @@ class ReticulaMaterias extends Controller{
         ];
         $this->view('pages/reticulas/materias/materias',$datos);
     }
+
+
+    public function buscar(){
+        if($_SERVER['REQUEST_METHOD']=='GET'){
+            $datos = [
+                'buscado' => trim($_GET['inputBuscador']),
+                'opcion' => trim($_GET['selectBuscador']),
+                'idReticula'=> trim($_GET['inputidReticula']),
+            ];
+            $Materias=$this->reticulaMatariaModel->buscarMateria($datos);
+            $datos = [
+                'materias'=>$Materias,
+                'id'=> trim($_GET['inputidReticula']),
+                 'tipoVista'=>1
+            ];
+            $this->view('pages/reticulas/materias/materias',$datos);
+        } 
+    }
+
+
+
     public function agregar($reticula){
         if($_SERVER['REQUEST_METHOD']=='POST'){
             $datos = [

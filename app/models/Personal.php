@@ -31,6 +31,12 @@ class Personal{
         elseif ($datos['opcion'] == 3) {
             $resultados=$this->db->query("SELECT * FROM personal where apellidoP=?",$bind);
         }
+        elseif ($datos['opcion'] == 4) {
+            $resultados=$this->db->query("SELECT * FROM personal where apellidoM=?",$bind);
+        }
+        elseif ($datos['opcion'] == 5) {
+            $resultados=$this->db->query("SELECT * FROM personal where usuario=?",$bind);
+        }
 
        
         return $resultados;

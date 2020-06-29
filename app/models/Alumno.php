@@ -14,6 +14,54 @@ class Alumno{
         return $resultados;
     }
 
+    public function    buscarAlumno($datos){
+        $bind=array($datos['buscado']);
+
+        if ($datos['opcion'] == 1) {
+
+            $resultados=$this->db->query("SELECT noControl,nombres,apellidoP,apellidoM,semestre,idReticula,carrera.nombre 
+            from alumno,reticula,carrera
+            WHERE idReticula= reticula.id AND reticula.idCarrera=carrera.id and alumno.noControl=?",$bind);
+
+        }
+
+         elseif ($datos['opcion'] == 2) {
+            $resultados=$this->db->query("SELECT noControl,nombres,apellidoP,apellidoM,semestre,idReticula,carrera.nombre 
+            from alumno,reticula,carrera
+            WHERE idReticula= reticula.id AND reticula.idCarrera=carrera.id and alumno.nombres=?",$bind);
+        } 
+        
+        elseif ($datos['opcion'] == 3) {
+            $resultados=$this->db->query("SELECT noControl,nombres,apellidoP,apellidoM,semestre,idReticula,carrera.nombre 
+            from alumno,reticula,carrera
+            WHERE idReticula= reticula.id AND reticula.idCarrera=carrera.id and alumno.apellidoP=?",$bind);
+        }
+        elseif ($datos['opcion'] == 4) {
+            $resultados=$this->db->query("SELECT noControl,nombres,apellidoP,apellidoM,semestre,idReticula,carrera.nombre 
+            from alumno,reticula,carrera
+            WHERE idReticula= reticula.id AND reticula.idCarrera=carrera.id and alumno.apellidoM=?",$bind);
+        }
+        elseif ($datos['opcion'] == 5) {
+            $resultados=$this->db->query("SELECT noControl,nombres,apellidoP,apellidoM,semestre,idReticula,carrera.nombre 
+            from alumno,reticula,carrera
+            WHERE idReticula= reticula.id AND reticula.idCarrera=carrera.id and alumno.semestre=?",$bind);
+        }
+        elseif ($datos['opcion'] == 6) {
+            $resultados=$this->db->query("SELECT noControl,nombres,apellidoP,apellidoM,semestre,idReticula,carrera.nombre 
+            from alumno,reticula,carrera
+            WHERE idReticula= reticula.id AND reticula.idCarrera=carrera.id and carrera.nombre=?",$bind);
+        }
+        elseif ($datos['opcion'] == 7) {
+            $resultados=$this->db->query("SELECT noControl,nombres,apellidoP,apellidoM,semestre,idReticula,carrera.nombre 
+            from alumno,reticula,carrera
+            WHERE idReticula= reticula.id AND reticula.idCarrera=carrera.id and alumno.idReticula=?",$bind);
+        }
+
+       
+        return $resultados;
+    }
+
+
     public function agregarAlumno($datos){
         $bind=array( 
                     $datos['nombres'],  
@@ -30,6 +78,10 @@ class Alumno{
     $resultado=$this->db->query($sql,$bind);
     return(is_array($resultado))?true:false;
     }
+
+
+
+
 
     public function obtenerAlumnoNoControl($noControl){
         $bind=array($noControl);

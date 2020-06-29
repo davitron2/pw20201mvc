@@ -26,7 +26,7 @@ include RUTA_APP . '/views/inc/header.inc.php'; ?>
                
                
                 <div class="row">
-                    <div class="col text-center">
+                <div class="col">
                     <button type="submit" class="btn btn-danger">Borrar <i class="text-white fas fa-trash"></i></button>
                     </div>
                 </div>

@@ -18,27 +18,42 @@ include RUTA_APP . '/views/inc/header.inc.php'; ?>
     </div>
     <div class="row mt-4 justify-content-center">
         <div class="col-lg-10">
+        <form action="<?php echo RUTA_URL;?>/alumnos/buscar"    method="get" enctype="multipart/form-data">
             <div class="row form-group">
                 <div class="col-md-9 mb-2">
-                    <input id="inputBuscador" type="text" class="form-control" placeholder="Buscar...">
+                    <input  name="inputBuscador"  required   id="inputBuscador" type="text" class="form-control" placeholder="Buscar...">
                 </div>
                 <div class="col-md-3">
-                    <select class="form-control" id="selectBuscador">
-                        <option>noControl</option>
-                        <option>Nombre</option>
-                        <option>Apellido Paterno</option>
-                        <option>Apellido Materno</option>
-                        <option>Semestre</option>
-                        <option>Carrera</option>
-                        <option>idReticula</option>
+                    <select class="form-control"    name="selectBuscador"  id="selectBuscador">
+                        <option value='1'>noControl</option>
+                        <option value='2'>Nombre</option>
+                        <option value='3'>Apellido Paterno</option>
+                        <option  value='4'>Apellido Materno</option>
+                        <option  value='5'>Semestre</option>
+                        <option  value='6'>Carrera</option>
+                        <option  value='7'>idReticula</option>
+                     
                     </select>
+                    
                 </div>
+                
             </div>
+        </form>
         </div>
     </div>
     
     <div class="row justify-content-center">
         <div class="col-lg-10">
+
+        <?php if(isset($datos['tipoVista'])   ) { ///////////////////////////////?>
+            <h4>Resultados de la busqueda</h4>
+            <div class="col">
+            <a href="<?php echo RUTA_URL; ?>/alumnos" class="text-secondary"><i class="fas fa-arrow-left"></i></i>  Regresar a ver todos</a>
+        </div>
+
+             <?php
+                 } 
+             ////////////////////////////////////////?>
             <table class="table table-striped">
                 <thead>
                     <tr>
