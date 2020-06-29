@@ -52,8 +52,8 @@ include RUTA_APP . '/views/inc/header.inc.php'; ?>
                         <td><?php echo $grupo['grupo']; ?></td>
                         <td><?php echo $grupo['limite']; ?></td>
                             <td>
-                                <a    href="<?php echo RUTA_URL;?>/reticulas/editar/<?php echo $grupo['id']; ?>"   class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="top" title="Editar grupo"><i class="text-white fas fa-edit"></i></a>
-                                <a    href="<?php echo RUTA_URL;?>/reticulas/borrar/<?php echo $grupo['id']; ?>"      class="btn btn-sm btn-danger" data-toggle="tooltip" data-placement="top" title="Eliminar grupo"><i class="text-white fas fa-trash"></i></a>
+                                <a    href="<?php echo RUTA_URL;?>/grupos/editar/<?php echo $grupo['id']; ?>"   class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="top" title="Editar grupo"><i class="text-white fas fa-edit"></i></a>
+                                <a    href="<?php echo RUTA_URL;?>/grupos/borrar/<?php echo $grupo['id']; ?>"      class="btn btn-sm btn-danger" data-toggle="tooltip" data-placement="top" title="Eliminar grupo"><i class="text-white fas fa-trash"></i></a>
                                 <a    href="<?php echo RUTA_URL;?>/grupos/horarios/<?php echo $grupo['id']; ?>"      class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Ver horario"><i class="text-white fas fa-calendar-week"></i></a>
                             </td>
                         </tr>

@@ -49,6 +49,16 @@ class Grupo{
         $bind=array($id);
         $sql="DELETE FROM grupo WHERE id=?";
         $resultado=$this->db->query($sql,$bind);
+
+        $bind=array($id);
+        $sql="DELETE FROM horario WHERE horario.idGrupo=?";
+        $resultado=$this->db->query($sql,$bind);
+       
+        $bind=array($id);
+        $sql="DELETE from alumno_grupo  WHERE alumno_grupo.idGrupo=?";
+        $resultado=$this->db->query($sql,$bind);
+
+
         return(is_array($resultado))?true:false;
     }
 

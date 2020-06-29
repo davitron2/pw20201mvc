@@ -97,8 +97,11 @@ include RUTA_APP . '/views/inc/header.inc.php'; ?>
                         <td><?php echo $horario['horaFin']; ?></td>
                         <td><?php echo $horario['nombre']; ?></td>
                             <td>
-                                <a    href="<?php echo RUTA_URL;?>/grupos/editarhorario/<?php echo $horario['id']; ?>"   class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="top" title="Editar grupo"><i class="text-white fas fa-edit"></i></a>
-                                <a    href="<?php echo RUTA_URL;?>/grupos/borrarhorario/<?php echo $horario['id']; ?>"      class="btn btn-sm btn-danger" data-toggle="tooltip" data-placement="top" title="Eliminar grupo"><i class="text-white fas fa-trash"></i></a>
+                            <form action="<?php echo RUTA_URL;?>/grupos/borrarhorario/<?php echo $horario['id']; ?>  "    method="post" enctype="multipart/form-data">
+                            <input id="inputIdGrupo" value="<?php echo $datos['idGrupo']  ?>"  name="inputIdGrupo" type="text" class="form-control" hidden readonly>      
+                    <button  type="submit"  data-toggle="tooltip" data-placement="top" title="Eliminar grupo"  class="btn btn-sm btn-danger"><i class="text-white fas fa-trash"></i></button>
+                                </form>
+                                
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -126,6 +129,7 @@ include RUTA_APP . '/views/inc/header.inc.php'; ?>
         }
     }
 </script>
+
 
 <?php include RUTA_APP . '/views/inc/buscador_aula.php'; ?>
 <?php include RUTA_APP . '/views/inc/footer.inc.php'; ?>

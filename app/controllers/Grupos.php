@@ -111,10 +111,10 @@ class  Grupos extends Controller{
         if($_SERVER['REQUEST_METHOD']=='POST'){
             $datos = [
                 'id' => $id,
-                'idMateria' => trim($_POST['idMateria']),
-                'idProfesor' => trim($_POST['idProfesor']),
-                'grupo' => trim($_POST['grupo']),
-                'limite' => trim($_POST['limite'])
+                'idMateria' => trim($_POST['inputIdMateria']),
+                'idProfesor' => trim($_POST['inputIdProfesor']),
+                'grupo' => trim($_POST['inputGrupo']),
+                'limite' => trim($_POST['inputLimite'])
             ];
             if($this->grupoModel->actualizarGrupo($datos)){
                 redireccionar('/grupos');
@@ -124,12 +124,17 @@ class  Grupos extends Controller{
 
         } else {
             $grupo=$this->grupoModel->obtenerGrupoId($id);
+            $materia=$this->materiaModel->obtenerMateriaId($grupo['idMateria']);
+            $profesor=$this->profesorModel->obtenerPersonalId( $grupo['idProfesor']);
             $datos = [
                 'id' => $grupo['id'],
                 'idMateria' => $grupo['idMateria'],
                 'idProfesor' => $grupo['idProfesor'],
                 'grupo' => $grupo['grupo'],
-                'limite' => $grupo['limite']
+                'limite' => $grupo['limite'],
+                'materia' => $materia['nombre'],
+                'profesor' =>  ''. $profesor['nombre'] . ' ' . $profesor['apellidoP'] . ' ' .$profesor['apellidoM']
+
             ];
             $this->view('pages/grupos/editar',$datos);
 
@@ -139,12 +144,17 @@ class  Grupos extends Controller{
 
     public function borrar($id){
         $grupo=$this->grupoModel->obtenerGrupoId($id);
+        $materia=$this->materiaModel->obtenerMateriaId($grupo['idMateria']);
+        $profesor=$this->profesorModel->obtenerPersonalId( $grupo['idProfesor']);
         $datos = [
-            'id' => $id,
+            'id' => $grupo['id'],
             'idMateria' => $grupo['idMateria'],
             'idProfesor' => $grupo['idProfesor'],
             'grupo' => $grupo['grupo'],
-            'limite' => $grupo['limite']
+            'limite' => $grupo['limite'],
+            'materia' => $materia['nombre'],
+            'profesor' =>  ''. $profesor['nombre'] . ' ' . $profesor['apellidoP'] . ' ' .$profesor['apellidoM']
+
         ];
             if($_SERVER['REQUEST_METHOD']=='POST'){
                 if($this->grupoModel->borrarGrupo($id)){
@@ -157,10 +167,19 @@ class  Grupos extends Controller{
     }
     
     public function borrarHorario($id){
+        if($_SERVER['REQUEST_METHOD']=='POST'){
+            $idGrupo=trim($_POST['inputIdGrupo']);
         if($this->grupoModel->borrarHorario($id)){
 
+              $Horarios = $this ->grupoModel->obtenerHorariosGrupo($idGrupo);
+        $datos = [
+            'idGrupo'=>$idGrupo,
+            'Horarios'=>$Horarios
+        ];
+            $this->view('pages/grupos/horarios',$datos);
+       
         }
-
+    }
     }
 
     public function docente() {
