@@ -99,7 +99,7 @@ include RUTA_APP . '/views/inc/header.inc.php'; ?>
                             <td>
                             <form action="<?php echo RUTA_URL;?>/grupos/borrarhorario/<?php echo $horario['id']; ?>  "    method="post" enctype="multipart/form-data">
                             <input id="inputIdGrupo" value="<?php echo $datos['idGrupo']  ?>"  name="inputIdGrupo" type="text" class="form-control" hidden readonly>      
-                    <button  type="submit"  data-toggle="tooltip" data-placement="top" title="Eliminar grupo"  class="btn btn-sm btn-danger"><i class="text-white fas fa-trash"></i></button>
+                    <button  type="submit"  data-toggle="tooltip" data-placement="top" title="Eliminar Horario"  class="btn btn-sm btn-danger"><i class="text-white fas fa-trash"></i></button>
                                 </form>
                                 
                             </td>
