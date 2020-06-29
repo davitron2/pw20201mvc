@@ -15,6 +15,23 @@ class Carreras extends Controller{
         ];
         $this->view('pages/carreras/carreras',$datos);
     }
+
+    public function buscar(){
+        if($_SERVER['REQUEST_METHOD']=='GET'){
+            $datos = [
+                'buscado' => trim($_GET['inputBuscador']),
+                'opcion' => trim($_GET['selectBuscador']),
+            ];
+            $carreras=$this->carreraModel->buscarCarrera($datos);
+            $datos = [
+                'Carreras'=>$carreras,
+                 'tipoVista'=>1
+            ];
+            $this->view('pages/carreras/carreras',$datos);
+        } 
+    }
+
+
     public function agregar(){
         if($_SERVER['REQUEST_METHOD']=='POST'){
             $datos = [

@@ -19,6 +19,42 @@ class ReticulaMateria{
         return $resultados;
     }
 
+    public function     buscarMateria($datos){
+        $bind=array(
+            $datos['idReticula'],
+            $datos['buscado']);
+        if ($datos['opcion'] == 1) {
+
+            $resultados=$this->db->query("SELECT reticula_materia.id, reticula_materia.idMateria, materia.nombre, materia.creditos, materia.unidades 
+            FROM reticula_materia  
+            INNER JOIN materia ON reticula_materia.idMateria = materia.id 
+            WHERE idReticula = ? and reticula_materia.idMateria=?",$bind);
+
+        }
+         elseif ($datos['opcion'] == 2) {
+            $resultados=$this->db->query("SELECT reticula_materia.id, reticula_materia.idMateria, materia.nombre, materia.creditos, materia.unidades 
+            FROM reticula_materia  
+            INNER JOIN materia ON reticula_materia.idMateria = materia.id 
+            WHERE idReticula = ? and materia.nombre=?",$bind);
+        } 
+        
+        elseif ($datos['opcion'] == 3) {
+            $resultados=$this->db->query("SELECT reticula_materia.id, reticula_materia.idMateria, materia.nombre, materia.creditos, materia.unidades 
+            FROM reticula_materia  
+            INNER JOIN materia ON reticula_materia.idMateria = materia.id 
+            WHERE idReticula = ? and materia.creditos=?",$bind);
+        }
+        elseif ($datos['opcion'] == 4) {
+            $resultados=$this->db->query("SELECT reticula_materia.id, reticula_materia.idMateria, materia.nombre, materia.creditos, materia.unidades 
+            FROM reticula_materia  
+            INNER JOIN materia ON reticula_materia.idMateria = materia.id 
+            WHERE idReticula = ? and materia.unidades=?",$bind);
+        }
+
+       
+        return $resultados;
+    }
+
 
     public function obtenerReticulaMaterias($id){
         $bind=array($id);

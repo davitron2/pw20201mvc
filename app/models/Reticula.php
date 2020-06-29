@@ -13,6 +13,36 @@ class Reticula{
     }
 
 
+    public function     buscarReticula($datos){
+        $bind=array($datos['buscado']);
+
+
+
+        if ($datos['opcion'] == 1) {
+
+            $resultados=$this->db->query("SELECT reticula.id,  carrera.nombre, reticula.max_creditos, reticula.anio FROM reticula JOIN carrera ON carrera.id = reticula.idCarrera where reticula.id=?",$bind);
+
+        }
+
+         elseif ($datos['opcion'] == 2) {
+            $resultados=$this->db->query("SELECT reticula.id,  carrera.nombre, reticula.max_creditos, reticula.anio FROM reticula JOIN carrera ON carrera.id = reticula.idCarrera where carrera.nombre=?",$bind);
+        } 
+        
+        elseif ($datos['opcion'] == 3) {
+            $resultados=$this->db->query("SELECT reticula.id,  carrera.nombre, reticula.max_creditos, reticula.anio FROM reticula JOIN carrera ON carrera.id = reticula.idCarrera where reticula.max_creditos=?",$bind);
+        }
+        elseif ($datos['opcion'] == 4) {
+            $resultados=$this->db->query("SELECT reticula.id,  carrera.nombre, reticula.max_creditos, reticula.anio FROM reticula JOIN carrera ON carrera.id = reticula.idCarrera where reticula.anio=?",$bind);
+        }
+      
+
+       
+        return $resultados;
+    }
+
+
+
+
     public function obtenerReticulasNombre(){
         $resultados=$this->db->query("SELECT reticula.id, CONCAT(carrera.nombre,': ',reticula.id) as nombre FROM reticula,carrera where reticula.idCarrera=carrera.id");
         return $resultados;

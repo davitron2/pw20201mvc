@@ -12,6 +12,23 @@ class Carrera{
         return $resultados;
     }
 
+    
+    public function    buscarCarrera($datos){
+        $bind=array($datos['buscado']);
+        if ($datos['opcion'] == 1) {
+
+            $resultados=$this->db->query("SELECT * FROM carrera  where id=? ",$bind);
+
+        }
+
+         elseif ($datos['opcion'] == 2) {
+            $resultados=$this->db->query("SELECT * FROM carrera where nombre=?",$bind);
+        } 
+        
+
+        return $resultados;
+    }
+
     public function validarNombreCarrera($datos){
         $bind=array( 
             $datos['nombre'],  

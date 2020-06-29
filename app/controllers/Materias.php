@@ -13,6 +13,22 @@ class Materias extends Controller{
         ];
         $this->view('pages/materias/materias',$datos);
     }
+
+    public function buscar(){
+        if($_SERVER['REQUEST_METHOD']=='GET'){
+            $datos = [
+                'buscado' => trim($_GET['inputBuscador']),
+                'opcion' => trim($_GET['selectBuscador']),
+            ];
+            $Materias=$this->materiaModel->buscarMateria($datos);
+            $datos = [
+                'Materias'=>$Materias,
+                 'tipoVista'=>1
+            ];
+            $this->view('pages/materias/materias',$datos);
+        } 
+    }
+
     public function agregar(){
         if($_SERVER['REQUEST_METHOD']=='POST'){
             $datos = [

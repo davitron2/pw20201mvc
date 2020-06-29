@@ -15,13 +15,13 @@
                     <div class="card-body">
                         <form action="<?php echo RUTA_URL; ?>/auths/login" method="POST">
                             <div class="form-group">
-                                <label for="correo">usuario</label>
-                                <input type="text" class="form-control" id="usuario" name="usuario" aria-describedby="emailHelp" require placeholder="usuario">
+                                <label for="correo">Usuario</label>
+                                <input type="text" class="form-control" id="usuario" name="usuario" aria-describedby="emailHelp" require placeholder="Usuario">
                                 <small id="emailHelp" class="form-text text-muted">Nunca comparta su contrasena con nadie.</small>
                             </div>
                             <div class="form-group">
-                            <label for="password">contrasena</label>
-                            <input type="password" class="form-control" id="contrasena" name="contrasena" require placeholder="contrasena">
+                            <label for="password">Contraseña</label>
+                            <input type="password" class="form-control" id="contrasena" name="contrasena" require placeholder="Contraseña">
                             </div>
                             <button type="submit" class="btn btn-primary btn-block">Ingresar</button>
                         </form>

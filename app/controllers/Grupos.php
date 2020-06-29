@@ -13,6 +13,22 @@ class  Grupos extends Controller{
         ];
         $this->view('pages/grupos/grupos',$datos);
     }
+
+    public function buscar(){
+        if($_SERVER['REQUEST_METHOD']=='GET'){
+            $datos = [
+                'buscado' => trim($_GET['inputBuscador']),
+                'opcion' => trim($_GET['selectBuscador']),
+            ];
+            $Grupos=$this->grupoModel->buscarGrupo($datos);
+            $datos = [
+                'Grupos'=>$Grupos,
+                 'tipoVista'=>1
+            ];
+            $this->view('pages/grupos/grupos',$datos);
+        } 
+    }
+
     public function horarios($id){
         $Horarios = $this ->grupoModel->obtenerHorariosGrupo($id);
         $datos = [

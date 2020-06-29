@@ -12,6 +12,28 @@ class Materia{
         return $resultados;
     }
 
+    public function     buscarMateria($datos){
+        $bind=array($datos['buscado']);
+        if ($datos['opcion'] == 1) {
+
+            $resultados=$this->db->query("SELECT * FROM materia  where id=? ",$bind);
+
+        }
+         elseif ($datos['opcion'] == 2) {
+            $resultados=$this->db->query("SELECT * FROM materia where nombre=?",$bind);
+        } 
+        
+        elseif ($datos['opcion'] == 3) {
+            $resultados=$this->db->query("SELECT * FROM materia where creditos=?",$bind);
+        }
+        elseif ($datos['opcion'] == 4) {
+            $resultados=$this->db->query("SELECT * FROM materia where unidades=?",$bind);
+        }
+
+       
+        return $resultados;
+    }
+    
     public function validarNombreMateria($datos){
         $bind=array( 
             $datos['nombre'],  

@@ -30,11 +30,13 @@ include RUTA_APP . '/views/inc/header.inc.php'; ?>
                         <option value='1'>ID</option>
                         <option value='2'>Nombre</option>
                         <option value='3'>Apellido Paterno</option>
-                        <option>Apellido Materno</option>
-                        <option>Nombre de usuario</option>
+                        <option  value='4'>Apellido Materno</option>
+                        <option  value='5'>Nombre de usuario</option>
                         <option>Tipo de usuario</option>
                     </select>
+                    
                 </div>
+                
             </div>
         </form>
         </div>
