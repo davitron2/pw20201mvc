@@ -95,5 +95,12 @@ class Aulas extends Controller{
         }
         echo json_encode($datos);
     }
+
+    public function horarios(){
+        $horarios = $this->aulaModel->obtenerHorarioAulas();
+        $datos = ['horarios'=>$horarios];
+        $this->view('pages/aulas/horarios',$datos);
+    }
+
 }
 ?>
