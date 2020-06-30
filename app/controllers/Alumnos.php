@@ -180,8 +180,11 @@ class Alumnos extends Controller{
         session_start();
         $idAlumno = $_SESSION['alumno']['noControl'];
         $horarios=$this->alumnoGrupoModel->obtenerHorarioAlumno($idAlumno);
+        $carrera=$this->alumnoModel->obtenerCarrera($idAlumno);
         $datos = [
-            'horarios'=>$horarios
+            'alumno'=>$_SESSION['alumno'],
+            'horarios'=>$horarios,
+            'carrera'=>$carrera
         ];
         $this->view('pages/alumnos/horario',$datos);
     }

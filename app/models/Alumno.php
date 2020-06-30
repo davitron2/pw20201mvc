@@ -183,6 +183,17 @@ class Alumno{
         WHERE idReticula= reticula.id AND reticula.idCarrera=carrera.id");
         return $resultados;
     }
+
+    public function obtenerCarrera($id){
+        $bind = array($id);
+        $sql = "select c.nombre 
+                from alumno a
+                inner join reticula r on a.idReticula = r.id 
+                inner join carrera c on c.id = r.idCarrera
+                where a.noControl = ?";
+        $resultado=$this->db->queryRenglon($sql, $bind);
+        return $resultado;
+    }
 }
 
 ?>

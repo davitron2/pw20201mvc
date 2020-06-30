@@ -93,6 +93,8 @@ class AlumnoGrupo{
     public function obtenerHorarioAlumno($id){
         $bind = array($id);
         $sql = "SELECT grupo.id,
+                    materia.nombre as 'materia',
+                    materia.creditos as 'creditos',
                     grupo.grupo,
                     personal.nombre,
                     personal.apellidoP,
@@ -120,12 +122,13 @@ class AlumnoGrupo{
                 INNER JOIN personal ON grupo.idProfesor = personal.id
                 INNER JOIN aula ON horario.idAula = aula.id
                 INNER JOIN alumno_grupo on alumno_grupo.idGrupo = grupo.id
+                INNER JOIN materia on materia.id = grupo.idMateria
                 WHERE alumno_grupo.idAlumno = ?
                 group by grupo.id";
                 $resultados=$this->db->query($sql,$bind);
                 return $resultados;
     }
-    
+
     public function agregarAlumnoCalificacion($datos){
         $bind=array( 
                     $datos['idAlumno'],
