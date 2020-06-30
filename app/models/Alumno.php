@@ -161,6 +161,13 @@ class Alumno{
         return $resultado;
     }
 
+    public function obtenerCalificacionesMateriasAlumno($id) {
+        $bind=array($id);
+        $sql="SELECT m.nombre As Materia, g.grupo As Grupo, c.unidad1, c.unidad2, c.unidad3, c.unidad4, c.unidad5, c.unidad6, c.unidad7 FROM calificacion c JOIN alumno a ON c.idAlumno = a.noControl JOIN grupo g ON c.idGrupo = g.id JOIN materia m ON g.idMateria = m.id WHERE a.noControl = ?";
+        $resultado=$this->db->query($sql, $bind);
+        return $resultado;
+    }
+
     public function calificarAlumno($datos){
         $bind=array(
             $datos['unidad1'],

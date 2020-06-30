@@ -189,6 +189,29 @@ class Alumnos extends Controller{
         $this->view('pages/alumnos/horario',$datos);
     }
 
+
+    public function calificaciones() {
+        session_start();
+        if(isset($_SESSION['alumno'])) {
+            $materias=$this->alumnoModel->obtenerCalificacionesMateriasAlumno($_SESSION['alumno']['noControl']);
+            $alumno=$this->alumnoModel->obtenerAlumnoNoControl($_SESSION['alumno']['noControl']);
+            
+            $datos = [
+                'materias' => $materias,
+                'alumno' => $alumno
+            ];
+
+            $this->view('pages/alumnos/parciales', $datos);
+        } else if(isset($_SESSION['usuario'])) {
+            echo "<script type=".'text/javascript'.">showErrorModal('No tienes permisos para esta opción.');</script>";
+        } else {
+            session_unset();
+            session_destroy();
+            $this->view('pages/logins/logins', null);
+            echo "<script type=".'text/javascript'.">showErrorModal('Su sesión a caducado.');</script>";
+        }
+    }
+
     public function HorarioPdf(){
         session_start();
         $idAlumno = $_SESSION['alumno']['noControl'];
@@ -215,6 +238,7 @@ class Alumnos extends Controller{
     }
     $datos=['Horarios'=>$registros , 'alumno'=>    "Alumno: " . $_SESSION['alumno']['noControl'] . ' '. $_SESSION['alumno']['nombres'] . ' ' . $_SESSION['alumno']['apellidoP'] . ' ' . $_SESSION['alumno']['apellidoM']  ];
       $this->view('pages/alumnos/HorarioImpresion',$datos);
+
     }
 }
 ?>
