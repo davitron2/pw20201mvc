@@ -5,6 +5,7 @@ class  Grupos extends Controller{
         $this->grupoModel=$this->model('Grupo');
         $this->materiaModel=$this->model('Materia');
         $this->profesorModel=$this->model('Personal');
+        $this->alumnosModel=$this->model('Alumno');
     }
     public function index(){
         $Grupos=$this->grupoModel->obtenerGrupos();
@@ -248,6 +249,46 @@ class  Grupos extends Controller{
             array_push($datos,$grupo);
         }
         echo json_encode($datos);
+    }
+
+    public function calificaciones($idGrupo) {
+        session_start();
+        if(isset($_SESSION['usuario']) && $_SESSION['usuario']['tipoUsuario'] == 2) {
+            $alumnos=$this->alumnosModel->obtenerAlumnosPorGrupo($idGrupo);
+
+            $datos = [
+                'alumnos' => $alumnos
+            ];
+
+            $this->view('pages/docentes/calificaciones', $datos);
+        }  else if($_SESSION['usuario']['tipoUsuario'] == 1) {
+            echo "<script type=".'text/javascript'.">showErrorModal('No tienes permisos para esta opción.');</script>";
+        } else {
+            session_unset();
+            session_destroy();
+            $this->view('pages/logins/logins', null);
+            echo "<script type=".'text/javascript'.">showErrorModal('Su sesión a caducado.');</script>";
+        }
+    }
+
+    public function calificar($idAlumno) {
+        session_start();
+        if(isset($_SESSION['usuario']) && $_SESSION['usuario']['tipoUsuario'] == 2) {
+            $alumno=$this->alumnosModel->obtenerCalificacionesAlumno($idAlumno);
+
+            $datos = [
+                'alumno' => $alumno
+            ];
+
+            $this->view('pages/docentes/calificar', $datos);
+        } else if($_SESSION['usuario']['tipoUsuario'] == 1) {
+            echo "<script type=".'text/javascript'.">showErrorModal('No tienes permisos para esta opción.');</script>";
+        } else {
+            session_unset();
+            session_destroy();
+            $this->view('pages/logins/logins', null);
+            echo "<script type=".'text/javascript'.">showErrorModal('Su sesión a caducado.');</script>";
+        }
     }
 }
 ?>
