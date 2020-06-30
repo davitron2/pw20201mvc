@@ -1,6 +1,10 @@
 <?php  include RUTA_APP . '/views/inc/header.inc.php'; ?>
 
 <div class="container-fluid">
+<div class="col">
+          
+            <a href="<?php echo RUTA_URL;?>/alumnos/HorarioPdf"  target="_blank"   id="pdf" name="pdf"   class="text-secondary ml-3">Imprimir Horario <i class="fas fa-print"></i></i></a>
+        </div>
     <h5 class="titulo-pagina">Horario</h5>
     <div class="table-responsive">
         <table class="table table-bordered table-sm tabla-info-alumno">
