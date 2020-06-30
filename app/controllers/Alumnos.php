@@ -240,5 +240,34 @@ class Alumnos extends Controller{
       $this->view('pages/alumnos/HorarioImpresion',$datos);
 
     }
+
+    public function calificacionPdf(){
+        session_start();
+      
+     $materias=$this->alumnoModel->obtenerCalificacionesMateriasAlumno($_SESSION['alumno']['noControl']);
+      
+        
+        foreach($materias as $key=>$materia){
+            $registros[]= [
+                                  
+                        
+                        'materia'=> $materia['Materia'],
+                        'grupo'=> $materia['Grupo'],
+                        'unidad1'=> $materia['unidad1'],
+                        
+                        'unidad2'=> $materia['unidad2'],
+                        'unidad3'=> $materia['unidad3'],
+                        'unidad4'=> $materia['unidad4'],
+                        'unidad5'=> $materia['unidad5'],
+                        'unidad6'=> $materia['unidad6'],
+                        'unidad7'=> $materia['unidad7']
+                      
+            ];
+                                        
+    }
+    $datos=['materias'=>$registros , 'alumno'=>    "Alumno: " . $_SESSION['alumno']['noControl'] . ' '. $_SESSION['alumno']['nombres'] . ' ' . $_SESSION['alumno']['apellidoP'] . ' ' . $_SESSION['alumno']['apellidoM']  ];
+      $this->view('pages/alumnos/CalificacionImpresion',$datos);
+
+    }
 }
 ?>
