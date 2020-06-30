@@ -12,7 +12,7 @@
                     <a class="nav-link" href="<?php echo RUTA_URL ?>/alumnos/horario">Horario</a>
                 </li>
                 <li id="nav-item-3" class="nav-item">
-                    <a class="nav-link" href="#">Calificaciones parciales</a>
+                    <a class="nav-link" href="<?php echo RUTA_URL ?>/alumnos/calificaciones">Calificaciones</a>
                 </li>
                 <li id="nav-item-5" class="nav-item">
                     <a class="nav-link" href="<?php echo RUTA_URL ?>/inscripciones">Inscripci&oacute;n</a>

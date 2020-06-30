@@ -30,6 +30,7 @@ class AlumnoGrupo{
                     $datos['idGrupo'],
                     $datos['estado']
         );
+        echo $datos['idGrupo'];
         $sql="INSERT INTO alumno_grupo (idAlumno,idGrupo,estado) 
             VALUES (?,?,?)";
         $resultado=$this->db->query($sql,$bind);
@@ -145,7 +146,6 @@ class AlumnoGrupo{
         $resultado=$this->db->query($sql,$bind);
         return(is_array($resultado))?true:false;
     }
-
 }
 
 ?>
