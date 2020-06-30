@@ -147,6 +147,8 @@ class Alumnos extends Controller{
     }
 
     public function calificar($idAlumno) {
+        session_start();
+        
         if($_SERVER['REQUEST_METHOD']=='POST'){
             $datos = [
                 'unidad1' => (int)trim($_POST['unidad1']),
@@ -159,7 +161,13 @@ class Alumnos extends Controller{
                 'id' => $idAlumno
             ];
             if($this->alumnoModel->calificarAlumno($datos)){
-                redireccionar('/calificar/' . $idAlumno);
+                if(isset($_SESSION['idGrupo'])){
+                    $idGrupo = $_SESSION['idGrupo'];
+                    redireccionar('/grupos/calificaciones/' . $idGrupo);
+                }else{
+                    redireccionar('/grupos/docente/' . $idGrupo);
+                }
+                
             } else {
                
             }

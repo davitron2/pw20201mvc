@@ -38,7 +38,7 @@ class AlumnoGrupo{
 
     public function borrarAlumnoGrupo($datos){
         $bind=array($datos['idGrupo'],$datos['idAlumno']);
-        $sql="DELETE FROM alumno_grupo WHERE idGrupo=? AND idAlumno = ?";
+        $sql="DELETE FROM alumno_grupo WHERE idGrupo=? AND idAlumno = ?;";
         $resultado=$this->db->query($sql,$bind);
         return(is_array($resultado))?true:false;
     }
@@ -124,6 +124,22 @@ class AlumnoGrupo{
                 group by grupo.id";
                 $resultados=$this->db->query($sql,$bind);
                 return $resultados;
+    }
+    public function agregarAlumnoCalificacion($datos){
+        $bind=array( 
+                    $datos['idAlumno'],
+                    $datos['idGrupo']
+        );
+        $sql="INSERT INTO calificacion (idAlumno,idGrupo,unidad1,unidad2,unidad3,unidad4,unidad5,unidad6,unidad7) 
+            VALUES (?,?,0,0,0,0,0,0,0)";
+        $resultado=$this->db->query($sql,$bind);
+        return(is_array($resultado))?true:false;
+    }
+    public function borrarAlumnoCalificacion($datos){
+        $bind=array($datos['idGrupo'],$datos['idAlumno']);
+        $sql="DELETE FROM calificacion WHERE idGrupo=? AND idAlumno = ?;";
+        $resultado=$this->db->query($sql,$bind);
+        return(is_array($resultado))?true:false;
     }
 
 }

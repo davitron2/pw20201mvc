@@ -62,7 +62,7 @@ class  Grupos extends Controller{
                 echo "<script>showErrorModal('Ya existe un grupo con esa materia y nombre') </script>  ";
 
             }else{
-                print_r($datos);
+                
                 if($this->grupoModel->agregarGrupo($datos)){
                     redireccionar('/grupos');
                 } else {
@@ -255,7 +255,7 @@ class  Grupos extends Controller{
         session_start();
         if(isset($_SESSION['usuario']) && $_SESSION['usuario']['tipoUsuario'] == 2) {
             $alumnos=$this->alumnosModel->obtenerAlumnosPorGrupo($idGrupo);
-
+            $_SESSION['idGrupo'] = $idGrupo;
             $datos = [
                 'alumnos' => $alumnos
             ];
@@ -275,7 +275,6 @@ class  Grupos extends Controller{
         session_start();
         if(isset($_SESSION['usuario']) && $_SESSION['usuario']['tipoUsuario'] == 2) {
             $alumno=$this->alumnosModel->obtenerCalificacionesAlumno($idAlumno);
-
             $datos = [
                 'alumno' => $alumno
             ];

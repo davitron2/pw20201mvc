@@ -22,6 +22,7 @@ class Inscripciones extends Controller{
                 'idAlumno' => $_SESSION['alumno']['noControl']
             ];
             $this->alumnoGrupoModel->borrarAlumnoGrupo($datos);
+            $this->alumnoGrupoModel->borrarAlumnoCalificacion($datos);
             redireccionar('/inscripciones');
         }
     }
@@ -37,6 +38,7 @@ class Inscripciones extends Controller{
                     if($this->alumnoGrupoModel->validarCreditos($datos)){
                         if($this->alumnoGrupoModel->validarEmpalmes($datos)==0){
                             if($this->alumnoGrupoModel->agregarAlumnoGrupo($datos)){
+                                $this->alumnoGrupoModel->agregarAlumnoCalificacion($datos);
                                 echo 'success';
                             }else{
                                 echo "showErrorModal('Error al elegir grupo');";

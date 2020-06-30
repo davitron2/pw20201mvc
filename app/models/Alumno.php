@@ -141,7 +141,22 @@ class Alumno{
     
     public function obtenerCalificacionesAlumno($idAlumno) {
         $bind=array($idAlumno);
-        $sql="SELECT c.id, a.noControl, CONCAT(a.apellidoP, ' ', a.apellidoM, ' ', a.nombres) As Alumno, IF(c.unidad1 <> 0, c.unidad1, 0) As unidad1, IF(c.unidad2 <> 0, c.unidad2, 0) As unidad2, IF(c.unidad3 <> 0, c.unidad3, 0) As unidad3, IF(c.unidad4 <> 0, c.unidad4, 0) As unidad4, IF(c.unidad5 <> 0, c.unidad5, 0) As unidad5, IF(c.unidad6 <> 0, c.unidad6, 0) As unidad6, IF(c.unidad7 <> 0, c.unidad7, 0) As unidad7, m.unidades FROM alumno_grupo ag JOIN alumno a ON ag.idAlumno = a.noControl JOIN grupo g ON ag.idGrupo = g.id JOIN materia m ON m.id = g.idMateria LEFT JOIN calificacion c ON c.idAlumno = a.noControl WHERE ag.id = ?";
+        $sql="SELECT c.id, a.noControl, 
+                CONCAT(a.apellidoP, ' ', a.apellidoM, ' ', a.nombres) As Alumno, 
+                IF(c.unidad1 <> 0, c.unidad1, 0) As unidad1,
+                IF(c.unidad2 <> 0, c.unidad2, 0) As unidad2, 
+                IF(c.unidad3 <> 0, c.unidad3, 0) As unidad3, 
+                IF(c.unidad4 <> 0, c.unidad4, 0) As unidad4, 
+                IF(c.unidad5 <> 0, c.unidad5, 0) As unidad5, 
+                IF(c.unidad6 <> 0, c.unidad6, 0) As unidad6, 
+                IF(c.unidad7 <> 0, c.unidad7, 0) As unidad7, 
+                m.unidades 
+                FROM alumno_grupo ag 
+                JOIN alumno a ON ag.idAlumno = a.noControl 
+                JOIN grupo g ON ag.idGrupo = g.id 
+                JOIN materia m ON m.id = g.idMateria 
+                LEFT JOIN calificacion c ON c.idAlumno = a.noControl 
+                WHERE c.id = ?";
         $resultado=$this->db->queryRenglon($sql, $bind);
         return $resultado;
     }
