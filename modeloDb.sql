@@ -21,16 +21,17 @@ USE `pw2020` ;
 -- Table `pw2020`.`alumno`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `pw2020`.`alumno` (
-  `id` int(4) zerofill auto_increment,
-  `noControl` VARCHAR(50)  NULL,
+  `id` INT(4) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT,
+  `noControl` VARCHAR(50) NULL DEFAULT NULL,
   `nombres` VARCHAR(50) NOT NULL,
   `apellidoP` VARCHAR(50) NOT NULL,
   `apellidoM` VARCHAR(50) NOT NULL,
   `NIP` VARCHAR(100) NOT NULL,
-`semestre` INT(50) NOT NULL,
-`idReticula` INT(50) NOT NULL,
+  `semestre` INT(50) NOT NULL,
+  `idReticula` INT(50) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = MyISAM
+AUTO_INCREMENT = 2
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish_ci;
 
@@ -45,7 +46,7 @@ CREATE TABLE IF NOT EXISTS `pw2020`.`alumno_grupo` (
   `estado` INT(11) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 56
+AUTO_INCREMENT = 63
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish_ci;
 
@@ -64,6 +65,27 @@ COLLATE = utf8_spanish_ci;
 
 
 -- -----------------------------------------------------
+-- Table `pw2020`.`calificacion`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `pw2020`.`calificacion` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `idGrupo` INT(11) NOT NULL,
+  `idAlumno` INT(11) NOT NULL,
+  `unidad1` INT(11) NOT NULL,
+  `unidad2` INT(11) NOT NULL,
+  `unidad3` INT(11) NOT NULL,
+  `unidad4` INT(11) NOT NULL,
+  `unidad5` INT(11) NOT NULL,
+  `unidad6` INT(11) NOT NULL,
+  `unidad7` INT(11) NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 3
+DEFAULT CHARACTER SET = utf8
+COLLATE = utf8_spanish_ci;
+
+
+-- -----------------------------------------------------
 -- Table `pw2020`.`carrera`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `pw2020`.`carrera` (
@@ -71,7 +93,7 @@ CREATE TABLE IF NOT EXISTS `pw2020`.`carrera` (
   `nombre` VARCHAR(100) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 2
+AUTO_INCREMENT = 3
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish_ci;
 
@@ -104,7 +126,7 @@ CREATE TABLE IF NOT EXISTS `pw2020`.`horario` (
   `horaFin` TIME NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 14
+AUTO_INCREMENT = 17
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish_ci;
 
@@ -152,7 +174,7 @@ CREATE TABLE IF NOT EXISTS `pw2020`.`reticula` (
   `idCarrera` INT(11) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 3
+AUTO_INCREMENT = 4
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish_ci;
 
@@ -166,7 +188,7 @@ CREATE TABLE IF NOT EXISTS `pw2020`.`reticula_materia` (
   `idMateria` INT(11) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 20
+AUTO_INCREMENT = 22
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish_ci;
 
