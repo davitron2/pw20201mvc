@@ -19,7 +19,7 @@ $pdf->SetFont('arial','B',16);
     $pdf->Ln(2);
     #encabezado
 //Table with 20 rows and 4 columns
-$pdf->SetWidths(array(25,16,23,25,30,30,30,30,30));
+$pdf->SetWidths(array(25,16,23,35,35,35,35,35,35));
 $pdf->Row(array( 'Materia','Grupo','Creditos','Lunes','Martes','Miercoles','Jueves','Viernes','Sabado'             ));
 $pdf->SetFont('arial','',10);
 foreach($datos['Horarios'] as $key=>$horario){
