@@ -119,5 +119,29 @@ class Aulas extends Controller{
         $this->view('pages/aulas/horarios',$datos);
     }
 
+    public function HorarioAulasPdf(){
+      
+        $horarios = $this->aulaModel->obtenerHorarioAulas();
+        foreach($horarios as $key=>$horario){
+            $registros[]= [
+                                  
+                        'aula'=>$horario['aula'] ,
+                        'grupo'=> $horario['grupo'] ,
+                        'profesor'=> $horario['profesor'] ,
+                        'materia'=> $horario['materia'],
+                        'Lunes'=> $horario['lunes'],
+                        'Martes'=> $horario['martes'],
+                        'Miercoles'=> $horario['miercoles'],
+                        'Jueves'=> $horario['jueves'],
+                        'Viernes'=> $horario['viernes'],
+                        'Sabado'=> $horario['sabado']
+                      
+            ];
+                                        
+    }
+    $datos=['Horarios'=>$registros  ];
+      $this->view('pages/aulas/HorariosImpresion',$datos);
+    }
+
 }
 ?>

@@ -4,7 +4,7 @@ include RUTA_APP . '/views/inc/header.inc.php'; ?>
     <div class="row py-2 px-4">
         <div class="col">
             <a href="<?php echo RUTA_URL; ?>/aulas" class="text-secondary"><i class="fas fa-arrow-left"></i></i>   Regresar</a>
-            <a href="<?php echo RUTA_URL; ?>/aulas/imprimir" class="text-secondary ml-3">Imprimir <i class="fas fa-print"></i></i></a>
+            <a href="<?php echo RUTA_URL;?>/aulas/HorarioAulasPdf"  target="_blank"   id="pdf" name="pdf"   class="text-secondary ml-3">Imprimir <i class="fas fa-print"></i></i></a>
         </div>
     </div>
     <div class="row">
@@ -51,3 +51,32 @@ include RUTA_APP . '/views/inc/header.inc.php'; ?>
 </div>
 
 <?php include RUTA_APP . '/views/inc/footer.inc.php'; ?>
+
+<script>
+$(function  (){
+
+$('#pdf').on('click',function(){
+
+$.ajax({
+    type:'GET',
+    url:"<?php echo RUTA_URL;?>/horarios/HorarioAulasPdf",
+    dataType:'json',
+    success: function(respuesta){
+        if(respuesta.hecho){
+            alert('archivo creado con exito');
+        }
+    },
+    error: function(e){
+        console.log(e.responseText);
+    }
+
+});
+
+
+});
+
+
+
+});
+
+</script>
