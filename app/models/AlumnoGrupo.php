@@ -132,10 +132,11 @@ class AlumnoGrupo{
 
     public function agregarAlumnoCalificacion($datos){
         $bind=array( 
-                    $datos['idAlumno'],
-                    $datos['idGrupo']
+                   
+                    $datos['idGrupo'],
+                    $datos['idAlumno']
         );
-        $sql="INSERT INTO calificacion (idAlumno,idGrupo,unidad1,unidad2,unidad3,unidad4,unidad5,unidad6,unidad7) 
+        $sql="INSERT INTO calificacion (idGrupo,idAlumno,unidad1,unidad2,unidad3,unidad4,unidad5,unidad6,unidad7) 
             VALUES (?,?,0,0,0,0,0,0,0)";
         $resultado=$this->db->query($sql,$bind);
         return(is_array($resultado))?true:false;
