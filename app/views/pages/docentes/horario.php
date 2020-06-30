@@ -1,5 +1,21 @@
-<?php
-    include RUTA_APP . '/views/inc/header.inc.php'; ?>
+<?php 
+include RUTA_APP . '/views/inc/header.inc.php';
+
+if(isset($_SESSION['usuario'])) { 
+    if($_SESSION['usuario']['tipoUsuario']==2){
+      
+        }else{
+            $url= ''.RUTA_URL.'/logins/logins';
+            header("Location:      $url"); 
+        }
+        
+}else{
+
+    $url= ''.RUTA_URL.'/logins/logins';
+    header("Location:      $url"); 
+}
+
+?>
 
 <div class="row py-2 px-4">
         <div class="col">

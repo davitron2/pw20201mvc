@@ -1,5 +1,21 @@
 <?php session_start();
-include RUTA_APP . '/views/inc/header.inc.php'; ?>
+include RUTA_APP . '/views/inc/header.inc.php';
+
+if(isset($_SESSION['usuario'])) { 
+    if($_SESSION['usuario']['tipoUsuario']==1){
+      
+        }else{
+            $url= ''.RUTA_URL.'/logins/logins';
+            header("Location:      $url"); 
+        }
+        
+}else{
+
+    $url= ''.RUTA_URL.'/logins/logins';
+    header("Location:      $url"); 
+}
+
+?>
 
 
 

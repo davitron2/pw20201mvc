@@ -1,4 +1,16 @@
-<?php  include RUTA_APP . '/views/inc/header.inc.php'; ?>
+<?php 
+
+include RUTA_APP . '/views/inc/header.inc.php';
+if(isset($_SESSION['alumno'])) { 
+    
+    
+}else{
+
+    $url= ''.RUTA_URL.'/logins/logins';
+    header("Location:      $url"); 
+}
+
+?>
 
 <div class="container-fluid">
 <div class="col">
