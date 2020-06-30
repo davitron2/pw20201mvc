@@ -29,9 +29,7 @@
                 <li id="nav-item-8" class="nav-item">
                     <a class="nav-link" href="<?php echo RUTA_URL ?>/grupos">Grupos</a>
                 </li>
-                <li id="nav-item-9" class="nav-item">
-                    <a class="nav-link" href="#">Cambio de NIP</a>
-                </li>
+                
                 <li id="cerrar-sesion" class="nav-item">
                     <a class="nav-link" href="<?php echo RUTA_URL ?>/auths/logout">Cerrar sesi&oacute;n</a>
                 </li>
