@@ -188,5 +188,33 @@ class Alumnos extends Controller{
         ];
         $this->view('pages/alumnos/horario',$datos);
     }
+
+    public function HorarioPdf(){
+        session_start();
+        $idAlumno = $_SESSION['alumno']['noControl'];
+        $horarios=$this->alumnoGrupoModel->obtenerHorarioAlumno($idAlumno);
+      
+        
+        foreach($horarios as $key=>$horario){
+            $registros[]= [
+                                  
+                        
+                        'materia'=> $horario['materia'],
+                        'grupo'=> $horario['grupo'],
+                        'creditos'=> $horario['creditos'],
+                        
+                        'Lunes'=> $horario['Lunes'],
+                        'Martes'=> $horario['Martes'],
+                        'Miercoles'=> $horario['Miercoles'],
+                        'Jueves'=> $horario['Jueves'],
+                        'Viernes'=> $horario['Viernes'],
+                        'Sabado'=> $horario['Sabado']
+                      
+            ];
+                                        
+    }
+    $datos=['Horarios'=>$registros , 'alumno'=>    "Alumno: " . $_SESSION['alumno']['noControl'] . ' '. $_SESSION['alumno']['nombres'] . ' ' . $_SESSION['alumno']['apellidoP'] . ' ' . $_SESSION['alumno']['apellidoM']  ];
+      $this->view('pages/alumnos/HorarioImpresion',$datos);
+    }
 }
 ?>
