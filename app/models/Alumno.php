@@ -176,6 +176,13 @@ class Alumno{
         $resultado=$this->db->query($sql, $bind);
         return(is_array($resultado) ? true : false);
     }
+
+    public function obtenerHorario(){
+        $resultados=$this->db->query("SELECT noControl,nombres,apellidoP,apellidoM,semestre,idReticula,carrera.nombre 
+        from alumno,reticula,carrera
+        WHERE idReticula= reticula.id AND reticula.idCarrera=carrera.id");
+        return $resultados;
+    }
 }
 
 ?>

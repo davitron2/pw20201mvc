@@ -4,6 +4,7 @@ class Alumnos extends Controller{
     public function __construct(){
         $this->alumnoModel=$this->model('Alumno');
         $this->reticulaModel=$this->model('Reticula');
+        $this->alumnoGrupoModel=$this->model('AlumnoGrupo');
       
     }
     public function index(){
@@ -173,6 +174,16 @@ class Alumnos extends Controller{
             }
 
         }
+    }
+
+    public function horario(){
+        session_start();
+        $idAlumno = $_SESSION['alumno']['noControl'];
+        $horarios=$this->alumnoGrupoModel->obtenerHorarioAlumno($idAlumno);
+        $datos = [
+            'horarios'=>$horarios
+        ];
+        $this->view('pages/alumnos/horario',$datos);
     }
 }
 ?>

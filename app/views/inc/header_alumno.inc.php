@@ -9,13 +9,10 @@
                     <a class="nav-link" href="<?php echo RUTA_URL ?>/logins/logins">Inicio</a>
                 </li>
                 <li id="nav-item-2" class="nav-item">
-                    <a class="nav-link" href="#">Horario</a>
+                    <a class="nav-link" href="<?php echo RUTA_URL ?>/alumnos/horario">Horario</a>
                 </li>
                 <li id="nav-item-3" class="nav-item">
                     <a class="nav-link" href="#">Calificaciones parciales</a>
-                </li>
-                <li id="nav-item-4" class="nav-item">
-                    <a class="nav-link" href="#">Boleta</a>
                 </li>
                 <li id="nav-item-5" class="nav-item">
                     <a class="nav-link" href="<?php echo RUTA_URL ?>/inscripciones">Inscripci&oacute;n</a>

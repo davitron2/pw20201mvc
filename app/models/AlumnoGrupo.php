@@ -125,6 +125,7 @@ class AlumnoGrupo{
                 $resultados=$this->db->query($sql,$bind);
                 return $resultados;
     }
+    
     public function agregarAlumnoCalificacion($datos){
         $bind=array( 
                     $datos['idAlumno'],
