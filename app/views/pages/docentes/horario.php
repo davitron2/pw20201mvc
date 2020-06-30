@@ -1,7 +1,13 @@
 <?php
     include RUTA_APP . '/views/inc/header.inc.php'; ?>
+
+<div class="row py-2 px-4">
+        <div class="col">
+            <a href="<?php echo RUTA_URL;?>/horarios/HorarioDocentePdf" target="_blank" class="text-secondary ml-3">Imprimir <i class="fas fa-print"></i></i></a>
+        </div>
+</div>
+
 <h5 class="titulo-pagina">Horario</h5>
-<a href="<?php echo RUTA_URL;?>/horarios/HorarioDocentePdf" target="_blank" class="btn btn-info btn-sm" title="exportar a PDF" id="pdf"> <i class="fa fa-file-pdf"></i></a>
 <div class="container">
     <table class="table table-striped table-bordered tabla-horario">
         <thead>
