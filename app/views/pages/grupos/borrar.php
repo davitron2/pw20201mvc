@@ -45,12 +45,14 @@ include RUTA_APP . '/views/inc/header.inc.php'; ?>
                 </div>
                 <div class="row form-group">
                     <div class="col-6 col-lg-3">
-                        <input id="inputLimite" name="inputLimite" type="number" class="form-control" value="<?php echo $datos['limite'] ?>"  required>
-                        <label for="inputLimite" class="floating-label">Limite alumnos</label>
+                    <label for="inputLimite"  class="label-for-disabled">Limite alumnos</label>
+                        <input id="inputLimite" required disabled name="inputLimite" type="number" class="form-control" value="<?php echo $datos['limite'] ?>"  required>
+                        
                     </div>
                     <div class="col-6 col-lg-4">
-                        <input id="inputGrupo" name="inputGrupo" type="text" maxlength="2" class="form-control" value="<?php echo $datos['grupo'] ?>"  required>
-                        <label for="inputGrupo" class="floating-label">Nombre grupo</label>
+                    <label for="inputGrupo"  class="label-for-disabled">Nombre grupo</label>
+                        <input id="inputGrupo" required disabled name="inputGrupo" type="text" maxlength="2" class="form-control" value="<?php echo $datos['grupo'] ?>"  required>
+                       
                     </div>
                 </div>
 
